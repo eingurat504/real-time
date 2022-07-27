@@ -56,7 +56,7 @@ class Route extends Model
      */
     public function origin()
     {
-        return $this->belongsTo(Location::class, 'origin_id', 'id');
+        // return $this->belongsTo(Location::class, 'origin_id', 'id');
     }
 
     /**
@@ -65,7 +65,7 @@ class Route extends Model
      */
     public function destination()
     {
-        return $this->belongsTo(Location::class, 'destination_id', 'id');
+        // return $this->belongsTo(Location::class, 'destination_id', 'id');
     }
 
 }

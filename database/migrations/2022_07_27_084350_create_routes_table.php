@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('short_code');
+            $table->foreignId('origin_id');
+            $table->foreignId('destination_id');
+            $table->text('description');
             $table->timestamps();
         });
     }
