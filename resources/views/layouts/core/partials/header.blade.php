@@ -114,7 +114,7 @@
             </li>	
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../images/logo.svg" alt="logo"/></a>
+                <a class="navbar-brand brand-logo" href="../../index.html"><img src="{{ asset('images/logo.svg') }}" alt="logo"/></a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
@@ -142,19 +142,22 @@
                 </li>
                 <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Johnson</span>
+                    <span class="nav-profile-name">{{ Auth::user()->name }}</span>
                     <span class="online-status"></span>
-                    <img src="../../images/faces/face28.png" alt="profile"/>
+                    <img src="{{ asset('images/faces/face28.png') }}" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                     <a class="dropdown-item">
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
                     </a>
-                    <a class="dropdown-item">
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();>
                         <i class="mdi mdi-logout text-primary"></i>
                         Logout
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
                 </li>
             </ul>
@@ -201,11 +204,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../../pages/tables/basic-table.html" class="nav-link">
-                    <i class="mdi mdi-grid menu-icon"></i>
-                    <span class="menu-title">Tables</span>
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-cube-outline menu-icon"></i>
+                    <span class="menu-title">UI Operations</span>
                     <i class="menu-arrow"></i>
                 </a>
+                <div class="submenu">
+                    <ul>
+                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/buttons.html">Transit Routes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item">
                 <a href="../../pages/icons/mdi.html" class="nav-link">
