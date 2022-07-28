@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('short_code');
             $table->foreignId('location_type_id');
-            $table->text('description')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
