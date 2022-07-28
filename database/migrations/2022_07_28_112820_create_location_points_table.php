@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('short_code');
             $table->foreignId('location_type_id');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->text('address')->nullable();
             $table->timestamps();
         });
