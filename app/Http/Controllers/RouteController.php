@@ -44,4 +44,38 @@ class RouteController extends Controller
             // 'routes' => $routes
         ]);
     }
+
+            /**
+     * Store Route.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function store(Request $request)
+    {
+        // dd('tdhuwfuhuwgdw');
+
+        $this->validate($request, [
+            'route_name' => 'required',
+            'short_code' => 'sometimes',
+            'distance' => 'sometimes',
+            'start_location' => 'sometimes',
+            'end_location' => 'sometimes',
+            'speed' => 'sometimes',
+        ]);
+// dd($request->all());
+        $route = new Route();
+        $route->name = $request->route_name;
+        $route->short_code = $request->short_code;
+        $route->distance = $request->distance;
+        $route->origin_id = $request->start_location;
+        $route->destination_id = $request->end_location;
+        $route->speed = $request->speed;
+        $route->created_at = date('Y-m-d H:i:s');
+        $route->updated_at = date('Y-m-d H:i:s');
+        $route->save();
+
+        // flash("{$route->name} created.")->success();
+
+        return redirect()->route('routes.index');
+    }
 }

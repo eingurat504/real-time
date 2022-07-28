@@ -1,7 +1,7 @@
 @extends('layouts.core.base')
 
 @section('content')
-<form method="POST" action="#" class="pt-3">
+<form method="POST" action="{{ route('routes.store') }}">
     @csrf
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
@@ -10,10 +10,10 @@
                     <h4 class="card-title">Route Info</h4>
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="first_name" id="first_name" required
-                            class="form-control @error('first_name') is-invalid @enderror"
-                            value="{{ old('first_name') }}" placeholder="{{ __('First name') }}"/>
-                        @error('first_name')
+                        <input type="text" name="route_name" id="route_name" required
+                            class="form-control @error('route_name') is-invalid @enderror"
+                            value="{{ old('route_name') }}" placeholder="{{ __('Route name') }}"/>
+                        @error('route_name')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
@@ -28,10 +28,10 @@
                     </div>
                     <div class="form-group">
                         <label>Starting Location</label>
-                        <input type="text" name="starting_location" id="starting_location" required
-                            class="form-control @error('starting_location') is-invalid @enderror"
-                            value="{{ old('starting_location') }}" placeholder="{{ __('Starting Location') }}"/>
-                        @error('starting_location')
+                        <input type="text" name="start_location" id="start_location" required
+                            class="form-control @error('start_location') is-invalid @enderror"
+                            value="{{ old('start_location') }}" placeholder="{{ __('Start Location') }}"/>
+                        @error('start_location')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
@@ -53,7 +53,7 @@
                     <h4 class="card-title">Configuration Info</h4>
                     <div class="form-group">
                         <label>Speed</label>
-                        <input type="text" name="speed" id="speed" required
+                        <input type="integer" name="speed" id="speed" required
                             class="form-control @error('speed') is-invalid @enderror"
                             value="{{ old('speed') }}" placeholder="{{ __('speed') }}"/>
                         @error('speed')
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label>Distance</label>
-                        <input type="text" name="distance" id="distance" required
+                        <input type="integer" name="distance" id="distance" required
                             class="form-control @error('distance') is-invalid @enderror"
                             value="{{ old('distance') }}" placeholder="{{ __('distance') }}"/>
                         @error('distance')
