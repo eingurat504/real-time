@@ -19,5 +19,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+$int = '^\d+$';
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/routes', [App\Http\Controllers\RouteController::class, 'index'])->name('routes.index');
+
+Route::pattern('route', $int);
+
+Route::group(['prefix' => '/route', 'as' => 'routes.'], function () { 
+    Route::get('/', [App\Http\Controllers\RouteController::class, 'index'])->name('index');
+    Route::get('/{route}', [App\Http\Controllers\RouteController::class, 'show'])->name('show');
+    Route::get('/create', [App\Http\Controllers\RouteController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\RouteController::class , 'store'])->name('store');
+});
+

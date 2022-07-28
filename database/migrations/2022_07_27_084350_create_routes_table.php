@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('short_code');
             $table->foreignId('origin_id');
             $table->foreignId('destination_id');
-            $table->text('description');
+            $table->integer('speed');
+            $table->integer('distance');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

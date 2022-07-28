@@ -18,7 +18,7 @@
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
         <div class="content-wrapper">
-          
+            @yield('content')
         </div>
          @include('layouts.core.partials.footer')
       </div>
