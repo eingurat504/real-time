@@ -45,6 +45,20 @@ class LocationController extends Controller
         ]);
     }
 
+            /**
+     * Show location.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function edit(Request $request, $locationId)
+    {
+        $location = LocationPoint::findorfail($locationId);
+
+        return view('locations.edit',[
+            'location' => $location
+        ]);
+    }
+
         /**
      * Show the application dashboard.
      *

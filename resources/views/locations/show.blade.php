@@ -71,10 +71,10 @@
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <button type="submit"
+                            <a href="{{ route('locations.edit', $location->id) }}"
                                     class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
-                                {{ __('+ CREATE') }}
-                            </button>
+                                {{ __('+ EDIT') }}
+</a>
                         </div>
                     </div>
                 </div>
