@@ -33,7 +33,7 @@
                 <tbody>
                 @foreach($locations as $location) 
                     <tr>
-                        <td><a href="{{ route('locations.show', $route->id) }}">{{ $location->name }}</a></td>
+                        <td><a href="{{ route('locations.show', $location->id) }}">{{ $location->name }}</a></td>
                         <td>{{ $location->short_code }}</td>
                         <td>{{ $location->origin_id }}</td>
                         <td>{{ $location->destination_id }}</td>

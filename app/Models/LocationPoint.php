@@ -14,7 +14,7 @@ class LocationPoint extends Model
      *
      * @var string
      */
-    protected $table = 'routes';
+    protected $table = 'location_points';
     // protected $table = 'tblbmc_route';
 
     /**

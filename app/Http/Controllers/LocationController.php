@@ -32,13 +32,13 @@ class LocationController extends Controller
     }
 
         /**
-     * Show Route.
+     * Show location.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function show($locationId)
     {
-        $location = LocationPoint::findorfail($routeId);
+        $location = LocationPoint::findorfail($locationId);
 
         return view('locations.show',[
             'location' => $location
@@ -60,7 +60,7 @@ class LocationController extends Controller
     }
 
             /**
-     * Store Route.
+     * Store location.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -68,21 +68,24 @@ class LocationController extends Controller
     {
 
         $this->validate($request, [
-            'route_name' => 'required',
+            'name' => 'required',
             'short_code' => 'sometimes',
-            'location_type_id' => 'sometimes|exists:location_types:id',
-            'start_location' => 'sometimes',
+            'location_type' => 'sometimes',
+            'latitude' => 'sometimes',
+            'longitude' => 'sometimes',
             'address' => 'sometimes',
         ]);
 
-        $route = new LocationPoint();
-        $route->name = $request->name;
-        $route->short_code = $request->short_code;
-        $route->location_type_id = $request->location_type;
-        $route->address = $request->address;
-        $route->created_at = date('Y-m-d H:i:s');
-        $route->updated_at = date('Y-m-d H:i:s');
-        $route->save();
+        $location = new LocationPoint();
+        $location->name = $request->name;
+        $location->short_code = $request->short_code;
+        $location->latitude = $request->latitude;
+        $location->longitude = $request->longitude;
+        $location->location_type_id = $request->location_type;
+        $location->address = $request->address;
+        $location->created_at = date('Y-m-d H:i:s');
+        $location->updated_at = date('Y-m-d H:i:s');
+        $location->save();
 
         // flash("{$route->name} created.")->success();
 
