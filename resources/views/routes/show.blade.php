@@ -38,22 +38,6 @@
                                 <td class="text-gray">Distance(KM)</td>
                                 <td>{{ $route->distance }}</td>
                             </tr>
-                            <tr>
-                                <td class="text-gray">Speed</td>
-                                <td>{{ $route->speed }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-gray">Description</td>
-                                <td>{{ $route->description }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-gray">Created At</td>
-                                <td>{{ $route->created_at }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-gray">Updated At</td>
-                                <td>{{ $route->updated_at }}</td>
-                            </tr>
                             </tbody>
                         </table>
                 </div>
@@ -65,6 +49,10 @@
                     <h4 class="card-title">Configuration Info</h4>
                         <table class="table no-wrap">
                             <tbody>
+                            <tr>
+                                <td class="text-gray">Speed</td>
+                                <td>{{ $route->speed }}</td>
+                            </tr>
                             <tr>
                                 <td class="text-gray">Description</td>
                                 <td>{{ $route->description }}</td>

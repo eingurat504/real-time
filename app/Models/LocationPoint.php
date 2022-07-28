@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\LocationPoint;
 
-class Route extends Model
+class LocationPoint extends Model
 {
     use HasFactory;
 
-    /**
+     /**
      * The table associated with the model.
      *
      * @var string
@@ -40,26 +39,6 @@ class Route extends Model
     protected $fillable = [
         'name',
         'short_code',
-        'origin_id',
-        'destination_id',
+        'location_type_id',
     ];
-
-       /**
-     * Location belonging to this route.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function origin()
-    {
-        return $this->belongsTo(LocationPoint::class, 'origin_id', 'id');
-    }
-
-    /**
-     * Location belonging to this route.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function destination()
-    {
-        return $this->belongsTo(LocationPoint::class, 'destination_id', 'id');
-    }
-
 }
