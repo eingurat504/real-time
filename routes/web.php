@@ -37,6 +37,7 @@ Route::pattern('location', $int);
 Route::group(['prefix' => '/location', 'as' => 'locations.'], function () { 
     Route::get('/', [App\Http\Controllers\LocationController::class, 'index'])->name('index');
     Route::get('/{location}', [App\Http\Controllers\LocationController::class, 'show'])->name('show');
+    Route::get('/{location}/edit', [App\Http\Controllers\LocationController::class, 'edit'])->name('edit');
     Route::get('/create', [App\Http\Controllers\LocationController::class, 'create'])->name('create');
     Route::post('/', [App\Http\Controllers\LocationController::class , 'store'])->name('store');
 });

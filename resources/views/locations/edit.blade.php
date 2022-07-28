@@ -12,7 +12,7 @@
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" required
                             class="form-control @error('name') is-invalid @enderror"
-                            value="{{ old('name') }}" placeholder="{{ __('Location Name') }}"/>
+                            value="{{ old('name', $location->name) }}" placeholder="{{ __('Location Name') }}"/>
                         @error('name')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -21,7 +21,7 @@
                         <label>Short Code</label>
                         <input type="text" name="short_code" id="short_code" required
                             class="form-control @error('short_code') is-invalid @enderror"
-                            value="{{ old('short_code') }}" placeholder="{{ __('Short Code') }}"/>
+                            value="{{ old('short_code', $location->short_code) }}" placeholder="{{ __('Short Code') }}"/>
                         @error('short_code')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -30,7 +30,7 @@
                         <label>Location Type</label>
                         <input type="text" name="location_type" id="location_type" required
                             class="form-control @error('location_type') is-invalid @enderror"
-                            value="{{ old('location_type') }}" placeholder="{{ __('Location Type') }}"/>
+                            value="{{ old('location_type', $location->location_type_id) }}" placeholder="{{ __('Location Type') }}"/>
                         @error('location_type')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -46,7 +46,7 @@
                         <label>Latitude</label>
                         <input type="text" name="latitude" id="latitude" required
                             class="form-control @error('latitude') is-invalid @enderror"
-                            value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
+                            value="{{ old('latitude', $location->latitude) }}" placeholder="{{ __('Latitude') }}"/>
                         @error('latitude')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -55,7 +55,7 @@
                         <label>Longitude</label>
                         <input type="text" name="longitude" id="longitude" required
                             class="form-control @error('longitude') is-invalid @enderror"
-                            value="{{ old('longitude') }}" placeholder="{{ __('Longitude') }}"/>
+                            value="{{ old('longitude', $location->longitude) }}" placeholder="{{ __('Longitude') }}"/>
                         @error('longitude')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -63,8 +63,7 @@
                     <div class="form-group">
                         <label>Address</label>
                         <textarea type="text" name="address" id="address" required
-                            class="form-control @error('address') is-invalid @enderror" rows="4"
-                            value="{{ old('address') }}" placeholder="{{ __('Address') }}">
+                            class="form-control @error('address') is-invalid @enderror" rows="4" placeholder="{{ __('Address') }}">{{ old('address', $location->address) }}
                         </textarea>
                         @error('address')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
