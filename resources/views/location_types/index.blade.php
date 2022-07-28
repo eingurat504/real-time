@@ -11,7 +11,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <h4 class="card-title">Location Types</h4>
                 <div class="pull-right">
-                        <a href="{{ route('types.create') }}" class="btn btn-secondary btn-rounded btn-fw">
+                        <a href="{{ route('location_types.create') }}" class="btn btn-secondary btn-rounded btn-fw">
                         <i class="mdi mdi-plus btn-icon-append"></i>
                             Add
 </a>
@@ -31,8 +31,8 @@
                 <tbody>
                 @foreach($types as $type) 
                     <tr>
-                        <td><a href="{{ route('types.show', $type->id) }}">{{ $type->name }}</a></td>
-                        <td>{{ $type->description }}</td>
+                        <td><a href="{{ route('location_types.show', $type->id) }}">{{ $type->name }}</a></td>
+                        <td>{{ $type->address }}</td>
                         <td>{{ $type->created_at }}</td>
                         <td>{{ $type->updated_at }}</td>
                         <td class="text-center"> 

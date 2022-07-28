@@ -1,28 +1,19 @@
 @extends('layouts.core.base')
 
 @section('content')
-<form method="POST" action="{{ route('locations.store') }}">
+<form method="POST" action="{{ route('location_types.store') }}">
     @csrf
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Configuration Info</h4>
+                    <h4 class="card-title">Location Type Info</h4>
                     <div class="form-group">
-                        <label>Latitude</label>
-                        <input type="text" name="latitude" id="latitude" required
-                            class="form-control @error('latitude') is-invalid @enderror"
-                            value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                        @error('latitude')
-                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label>Longitude</label>
-                        <input type="text" name="longitude" id="longitude" required
-                            class="form-control @error('longitude') is-invalid @enderror"
-                            value="{{ old('longitude') }}" placeholder="{{ __('Longitude') }}"/>
-                        @error('longitude')
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" required
+                            class="form-control @error('name') is-invalid @enderror"
+                            value="{{ old('name') }}" placeholder="{{ __('name') }}"/>
+                        @error('name')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
@@ -38,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <a href="{{ route('locations.index') }}"
+                            <a href="{{ route('location_types.index') }}"
                             class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
                                 {{ __('CANCEL') }}
                             </a>
