@@ -15,7 +15,6 @@ class LocationPoint extends Model
      * @var string
      */
     protected $table = 'location_points';
-    // protected $table = 'tblbmc_route';
 
     /**
      * The primary key for the model.
