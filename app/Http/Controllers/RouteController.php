@@ -30,4 +30,18 @@ class RouteController extends Controller
             'routes' => $routes
         ]);
     }
+
+        /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function create()
+    {
+        $routes = Route::get();
+
+        return view('routes.create',[
+            // 'routes' => $routes
+        ]);
+    }
 }
