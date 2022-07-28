@@ -32,6 +32,20 @@ class RouteController extends Controller
     }
 
         /**
+     * Show Route.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function show($routeId)
+    {
+        $route = Route::findorfail($routeId);
+
+        return view('routes.show',[
+            'route' => $route
+        ]);
+    }
+
+        /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -52,7 +66,6 @@ class RouteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('tdhuwfuhuwgdw');
 
         $this->validate($request, [
             'route_name' => 'required',
@@ -61,8 +74,9 @@ class RouteController extends Controller
             'start_location' => 'sometimes',
             'end_location' => 'sometimes',
             'speed' => 'sometimes',
+            'description' => 'sometimes',
         ]);
-// dd($request->all());
+
         $route = new Route();
         $route->name = $request->route_name;
         $route->short_code = $request->short_code;
@@ -70,6 +84,7 @@ class RouteController extends Controller
         $route->origin_id = $request->start_location;
         $route->destination_id = $request->end_location;
         $route->speed = $request->speed;
+        $route->description = $request->description;
         $route->created_at = date('Y-m-d H:i:s');
         $route->updated_at = date('Y-m-d H:i:s');
         $route->save();

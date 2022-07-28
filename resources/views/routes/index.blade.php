@@ -33,7 +33,7 @@
                 <tbody>
                 @foreach($routes as $route) 
                     <tr>
-                        <td>{{ $route->name }}</td>
+                        <td><a href="{{ route('routes.show', $route->id) }}">{{ $route->name }}</a></td>
                         <td>{{ $route->short_code }}</td>
                         <td>{{ $route->origin_id }}</td>
                         <td>{{ $route->destination_id }}</td>
