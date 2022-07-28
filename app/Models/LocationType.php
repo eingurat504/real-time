@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LocationPoint extends Model
+class LocationType extends Model
 {
     use HasFactory;
 
-     /**
+         /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'location_points';
+    protected $table = 'location_types';
 
     /**
      * The primary key for the model.
@@ -37,7 +37,5 @@ class LocationPoint extends Model
      */
     protected $fillable = [
         'name',
-        'short_code',
-        'location_type_id',
     ];
 }
