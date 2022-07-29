@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Route;
+use App\Models\RouteCoordinate;
 
 class RouteController extends Controller
 {
@@ -59,7 +60,7 @@ class RouteController extends Controller
         ]);
     }
 
-            /**
+    /**
      * Store Route.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -92,5 +93,47 @@ class RouteController extends Controller
         // flash("{$route->name} created.")->success();
 
         return redirect()->route('routes.index');
+    }
+
+    public function upload_coordinates(Request $request, $routeId)
+    {
+        $validator = Validator::make($request->all(), [
+            'route_kml' => 'required|array',
+            'route_kml.*.latitude' => 'required|lat',
+            'route_kml.*.longitude' => 'required|lng',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }
+
+        $route = RouteCoorinate::find($routeId);
+
+        if (!$route) {
+            return response()->json(['error' => 'Unknown route coordinates'], 404);
+        }
+
+        $route->delete();
+
+
+        DB::table('tblbmc_route_coordinates')
+            ->where('route_id', $routeId)->delete();
+
+        $count = 1;
+
+        foreach ($request->route_kml as $coor) {
+
+            $coord = new RouteCoordinate();
+            $coord->sequence = $count;
+            $coord->route_id = $coordinate[0];
+            $coord->latitude = $coordinate[0];
+            $coord->longitude = $coordinate[1];
+            $coord->created_at = date('Y-m-d H:i:s');
+            $coord->updated_at = date('Y-m-d H:i:s');
+
+            $count++;
+        }
+
+        return response()->json(['status' => "{$route->name} uploaded."]);
     }
 }
