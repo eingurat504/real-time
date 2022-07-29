@@ -213,7 +213,7 @@
                     <ul>
                         <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Transit Routes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('locations.index') }}">Location Points</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('zones.index') }}">Geofenced Areas</a></li>
                     </ul>
                 </div>
             </li>
