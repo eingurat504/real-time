@@ -13,8 +13,7 @@
                 <div class="pull-right">
                         <a href="{{ route('zones.create') }}" class="btn btn-secondary btn-rounded btn-fw">
                         <i class="mdi mdi-plus btn-icon-append"></i>
-                            Add
-</a>
+                            Add</a>
                 </div>
             </div>
             <div class="table-responsive">
