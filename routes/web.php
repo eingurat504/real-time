@@ -52,6 +52,17 @@ Route::group(['prefix' => '/location_type', 'as' => 'location_types.'], function
     Route::post('/', [App\Http\Controllers\LocationTypeController::class , 'store'])->name('store');
 });
 
+Route::pattern('zone', $int);
+
+Route::group(['prefix' => '/zone', 'as' => 'zones.'], function () { 
+    Route::get('/', [App\Http\Controllers\ZoneController::class, 'index'])->name('index');
+    Route::get('/{zone}', [App\Http\Controllers\ZoneController::class, 'show'])->name('show');
+    Route::get('/{zone}/edit', [App\Http\Controllers\ZoneController::class, 'edit'])->name('edit');
+    Route::get('/create', [App\Http\Controllers\ZoneController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\ZoneController::class , 'store'])->name('store');
+});
+
+
 
 
 
