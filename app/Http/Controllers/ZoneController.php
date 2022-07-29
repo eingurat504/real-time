@@ -81,12 +81,17 @@ class ZoneController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'address' => 'sometimes',
+            'location_points_id' => 'sometimes|exists:location_points,id',
+            'p_polygon_coordinates' => 'sometimes',
+            'zone' => 'sometimes'
         ]);
 
         $zone = new Zone();
         $zone->name = $request->name;
-        $zone->address = $request->address;
+        $zone->location_points_id = $request->location_points_id;
+        $zone->status = $request->status;
+        $zone->p_polygon_coordinates = $request->polygon_coordinates;
+        $zone->v_description = $request->description;
         $zone->created_at = date('Y-m-d H:i:s');
         $zone->updated_at = date('Y-m-d H:i:s');
         $zone->save();

@@ -18,6 +18,18 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label>Import Zone: </label>
+                        <input type="file" id="zone_xls" name="zone_xls" value="{{ old('zone_xls') }}"/>
+                        @if ($errors->has('zone_xls'))
+                            <span class="help-block">
+                                {{ $errors->first('zone_xls') }}
+                            </span>
+                        @endif
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label>Description: </label>
                         <textarea type="text" name="description" id="description" required
                             class="form-control @error('description') is-invalid @enderror" rows="4"

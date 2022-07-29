@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->foreignId('location_points_id');
             $table->string('p_polygon_coordinates');
+            $table->string('description');
             $table->timestamps();
         });
     }
