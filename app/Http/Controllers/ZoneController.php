@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ZoneCoordinate;
 use App\Models\Zone;
 
 class ZoneController extends Controller
@@ -19,7 +20,7 @@ class ZoneController extends Controller
     }
 
       /**
-     * Show the application dashboard.
+     * Show Zones
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -82,7 +83,6 @@ class ZoneController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'location_points_id' => 'sometimes|exists:location_points,id',
-            'p_polygon_coordinates' => 'required|regex:/^((-?[\d]*\.[\d]*),(-?[\d]*\.[\d]*)\;){2,}((-?[\d]*\.[\d]*),(-?[\d]*\.[\d]*)){1}$/',
             'zone_xls' => 'sometimes'
         ]);
 
@@ -117,7 +117,6 @@ class ZoneController extends Controller
             array_push($zone_array, explode(',', $latlng));
         }
 
-
         $zone = new Zone();
         $zone->name = $request->name;
         $zone->location_points_id = $request->location_points_id;
@@ -135,7 +134,6 @@ class ZoneController extends Controller
         foreach ($coordinates as $coordinate) {
 
             $sequence = $sequence + 1;
-
             $coord = new ZoneCoordinate();
             $coord->sequence = $sequence;
             $coord->zone_id = $coordinate[0];

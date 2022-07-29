@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('zone_coordinates', function (Blueprint $table) {
+        Schema::create('alerts', function (Blueprint $table) {
             $table->id();
-            $table->string('sequence');
-            $table->foreignId('zone_id');
-            $table->string('latitude');
-            $table->string('longitude');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zone_coordinates');
+        Schema::dropIfExists('alerts');
     }
 };
