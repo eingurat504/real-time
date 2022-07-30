@@ -134,6 +134,7 @@ class ZoneController extends Controller
         foreach ($coordinates as $coordinate) {
 
             $sequence = $sequence + 1;
+            
             $coord = new ZoneCoordinate();
             $coord->sequence = $sequence;
             $coord->zone_id = $coordinate[0];

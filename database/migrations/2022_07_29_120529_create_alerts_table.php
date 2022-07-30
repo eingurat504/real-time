@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
+            $table->string('vehicle');
+            $table->string('country');
+            $table->string('location_point');
             $table->timestamps();
         });
     }
