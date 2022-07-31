@@ -96,37 +96,61 @@ class RouteController extends Controller
         return redirect()->route('routes.index');
     }
 
-    public function upload_coordinates(Request $request, $routeId)
+    public function uploadRoute(Request $request, $routeId)
     {
-        $validator = Validator::make($request->all(), [
-            'route_kml' => 'required|array',
-            'route_kml.*.latitude' => 'required|lat',
-            'route_kml.*.longitude' => 'required|lng',
+        $this->validate($request, [
+            'route_kml' => 'required'
+        ],
+        [
+            'route_kml.mimes' => 'The :attribute must be a file of either type: xml,kml',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
+        // if ($validator->fails()) {
+        //     return response()->json(['error' => $validator->errors()], 422);
+        // }
+
+        // $route = RouteCoordinate::find($routeId);
+
+        // if (!$route) {
+        //     return response()->json(['error' => 'Unknown route coordinates'], 404);
+        // }
+
+        $route = simplexml_load_string($request->route_kml);
+
+        if (isset($route->Document->Placemark->LineString->coordinates)) {
+            $coordinates = explode(' ', trim($route->Document->Placemark->LineString->coordinates));
+        } else {
+            return redirect()->back(); // ->withErrors(json_encode('Wrong File Format'));
         }
 
-        $route = RouteCoordinate::find($routeId);
+        $coor_arr = [];
 
-        if (!$route) {
-            return response()->json(['error' => 'Unknown route coordinates'], 404);
+        foreach ($coordinates as $coordinates_str) {
+            $coordinate = explode(',', $coordinates_str);
+
+            if (count($coordinate) != 3) {
+                return redirect()->back()->withErrors(json_encode('Wrongly formed data'));
+            }
+
+            $coor = [
+                'longitude' => (float) $coordinate[0],
+                'latitude' => (float) $coordinate[1],
+                'altitude' => empty($coordinate[2]) ? 0 : (float) $coordinate[2],
+            ];
+            array_push($coor_arr, $coor);
         }
 
-        $route->delete();
 
-
-        DB::table('tblbmc_route_coordinates')
-            ->where('route_id', $routeId)->delete();
+        // DB::table('tblbmc_route_coordinates')
+        //     ->where('route_id', $routeId)->delete();
 
         $count = 1;
 
-        foreach ($request->route_kml as $coor) {
+        foreach ($coor_arr as $coor) {
 
             $coord = new RouteCoordinate();
             $coord->sequence = $count;
-            $coord->route_id = $coordinate[0];
+            $coord->route_id = $routeId;
             $coord->latitude = $coordinate[0];
             $coord->longitude = $coordinate[1];
             $coord->created_at = date('Y-m-d H:i:s');
@@ -135,7 +159,7 @@ class RouteController extends Controller
             $count++;
         }
 
-        return response()->json(['status' => "{$route->name} uploaded."]);
+        return redirect()->route('routes.index');
     }
 
 

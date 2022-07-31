@@ -6,7 +6,7 @@
     <li class="breadcrumb-item active">Projects</li>
 </ol>
 <div class="col-lg-12">
-    <form method="POST" action="{{ route('routes.store') }}">
+    <form method="POST" action="{{ route('routes.update', $route->id) }}">
         @csrf
         <div class="row">
             <div class="col-lg-6 grid-margin stretch-card">
@@ -36,13 +36,13 @@
                             <select class="form-control form-control-lg @error('start_location') is-invalid @enderror" id="start_location" name="start_location">
                             <option value="">Choose location</option>
                                 @foreach($locations as $location)
-                                    <option value="{{ $location->id }}"
+                                    <option value="{{ $location->start_location }}"
                                         {{ old('start_location') == $location->start_location ? 'selected' : '' }}>{{ $location->name }}
                                     </option>
                                 @endforeach
                             </select>
                             @error('start_location')
-                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -50,7 +50,7 @@
                             <select class="form-control form-control-lg @error('end_location') is-invalid @enderror" id="end_location" name="end_location">
                             <option value="">Choose location</option>
                                 @foreach($locations as $location)
-                                    <option value="{{ $location->id }}"
+                                    <option value="{{ $location->end_location }}"
                                         {{ old('end_location') == $location->end_location ? 'selected' : '' }}>{{ $location->name }}
                                     </option>
                                 @endforeach
@@ -97,12 +97,14 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <a href="{{ route('routes.index') }}" class="btn btn-block btn-light">
+                                <a href="{{ route('routes.index') }}"
+                                class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
                                     {{ __('CANCEL') }}
                                 </a>
                             </div>
                             <div class="col-lg-6">
-                                <button type="submit" class="btn btn-success me-2">
+                                <button type="submit"
+                                        class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
                                     {{ __('+ CREATE') }}
                                 </button>
                             </div>

@@ -2,11 +2,13 @@
 
 @section('content')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../index.html">UI Operations</a></li>
+    <li class="breadcrumb-item"><a href="#">Operations</a></li>
     <li class="breadcrumb-item active">Projects</li>
 </ol>
-<form method="POST" action="{{ route('routes.store') }}">
-    @csrf
+<form method="POST" action="{{ route('routes.upload', $route->id) }}">
+{{ method_field('PUT') }}
+
+{{ csrf_field() }}
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
 
@@ -65,24 +67,26 @@
                 <div class="card-body">
                     <h4 class="card-title">Configuration Info</h4>
                     <div class="form-group">
-                        <label>Speed</label>
-                        <input type="number" name="speed" id="speed" required
-                            class="form-control @error('speed') is-invalid @enderror"
-                            value="{{ old('speed') }}" placeholder="{{ __('speed') }}"/>
-                        @error('speed')
+                        <label>Import Route: </label>
+                        <input type="file" id="route_kml" name="route_kml" value="{{ old('route_kml') }}"/>
+                        @if ($errors->has('route_kml'))
+                            <span class="help-block">
+                                {{ $errors->first('route_kml') }}
+                            </span>
+                        @endif
+                        @error('route_kml')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
+                    
                     <div class="form-group">
-                        <label>Distance</label>
-                        <input type="number" name="distance" id="distance" required
-                            class="form-control @error('distance') is-invalid @enderror"
-                            value="{{ old('distance') }}" placeholder="{{ __('distance') }}"/>
-                        @error('distance')
-                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                        @enderror
+                        <div class="col-md-8">
+                            Click
+                            <a href="{{asset('samples/zone.xlsx')}}">here</a>
+                            for sample document
+                        </div>
                     </div>
-                        
+
                     <div class="form-group">
                         <label>Description</label>
                         <textarea type="text" name="description" id="description" required
@@ -96,14 +100,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <a href="{{ route('routes.index') }}"
-                            class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
+                            class="btn btn-block btn-light">
                                 {{ __('CANCEL') }}
                             </a>
                         </div>
                         <div class="col-lg-6">
                             <button type="submit"
-                                    class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
-                                {{ __('+ CREATE') }}
+                                    class="btn btn-block btn-success ">
+                                {{ __('+ UPDATE') }}
                             </button>
                         </div>
                     </div>
