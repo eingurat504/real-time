@@ -1,10 +1,22 @@
 @extends('layouts.core.base')
 
 @section('content')
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../index.html">UI Operations</a></li>
-    <li class="breadcrumb-item active">Projects</li>
-</ol>
+<div class="col-sm-6 mb-4 mb-xl-0">
+    <div class="d-lg-flex align-items-center">
+        <div>
+            <button type="button" class="btn bg-white btn-icon ms-2">
+                <i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
+            </button>
+        </div>
+        <div class="ms-lg-5 d-lg-flex d-none">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">UI Operations</a></li>
+                <li class="breadcrumb-item active">Projects</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -46,6 +58,10 @@
                                 <a class="dropdown-item">
                                     <i class="mdi mdi-grease-pencil text-primary"></i>
                                     Edit
+                                </a>
+                                <a href="{{ route('routes.configure.show', $route->id) }}" class="dropdown-item">
+                                    <i class="mdi mdi-grease-pencil text-primary"></i>
+                                    Configure
                                 </a>
                                 <a class="dropdown-item">
                                     <i class="mdi mdi-delete text-primary"></i>

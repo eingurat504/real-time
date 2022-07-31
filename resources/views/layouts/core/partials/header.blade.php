@@ -206,12 +206,12 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">UI Operations</span>
+                    <span class="menu-title">Operations</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="submenu">
                     <ul>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Transit Routes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Routes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('locations.index') }}">Location Points</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('zones.index') }}">Zones</a></li>
                     </ul>

@@ -144,12 +144,12 @@ class RouteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function configureRoute()
+    public function configureRoute(Request $request, $routeId)
     {
-        $locations = LocationPoint::get();
+        $route = Route::findorfail($routeId);
 
         return view('routes.configure',[
-            'locations' => $locations
+            'route' => $route
         ]);
     }
 
