@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Route;
 use App\Models\RouteCoordinate;
+use App\Models\LocationPoint;
 
 class RouteController extends Controller
 {
@@ -53,10 +54,10 @@ class RouteController extends Controller
      */
     public function create()
     {
-        $routes = Route::get();
+        $locations = LocationPoint::get();
 
         return view('routes.create',[
-            // 'routes' => $routes
+            'locations' => $locations
         ]);
     }
 
@@ -107,7 +108,7 @@ class RouteController extends Controller
             return response()->json(['error' => $validator->errors()], 422);
         }
 
-        $route = RouteCoorinate::find($routeId);
+        $route = RouteCoordinate::find($routeId);
 
         if (!$route) {
             return response()->json(['error' => 'Unknown route coordinates'], 404);
@@ -136,4 +137,20 @@ class RouteController extends Controller
 
         return response()->json(['status' => "{$route->name} uploaded."]);
     }
+
+
+            /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function configureRoute()
+    {
+        $locations = LocationPoint::get();
+
+        return view('routes.configure',[
+            'locations' => $locations
+        ]);
+    }
+
 }
