@@ -1,8 +1,10 @@
 @extends('layouts.core.base')
 
 @section('content')
-<form method="POST" action="{{ route('location_types.store') }}">
-    @csrf
+<form method="POST" action="{{ route('location_types.update', $type->id) }}">
+
+        @csrf
+        @method('PUT')
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">

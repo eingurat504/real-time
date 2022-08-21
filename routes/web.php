@@ -50,6 +50,7 @@ Route::group(['prefix' => '/location_type', 'as' => 'location_types.'], function
     Route::get('/', [App\Http\Controllers\LocationTypeController::class, 'index'])->name('index');
     Route::get('/{location_type}', [App\Http\Controllers\LocationTypeController::class, 'show'])->name('show');
     Route::get('/{location_type}/edit', [App\Http\Controllers\LocationTypeController::class, 'edit'])->name('edit');
+    Route::put('/{location_type}/update', [App\Http\Controllers\LocationTypeController::class, 'update'])->name('update');
     Route::get('/create', [App\Http\Controllers\LocationTypeController::class, 'create'])->name('create');
     Route::post('/', [App\Http\Controllers\LocationTypeController::class , 'store'])->name('store');
 });
