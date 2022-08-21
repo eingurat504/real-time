@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LocationPoint;
+use App\Models\LocationType;
 
 class LocationController extends Controller
 {
@@ -54,8 +55,11 @@ class LocationController extends Controller
     {
         $location = LocationPoint::findorfail($locationId);
 
+        $types = LocationType::get();
+
         return view('locations.edit',[
-            'location' => $location
+            'location' => $location,
+            'types' => $types
         ]);
     }
 
@@ -66,10 +70,10 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $locations = LocationPoint::get();
+        $types = LocationType::get();
 
         return view('locations.create',[
-            // 'locations' => $locations
+            'types' => $types
         ]);
     }
 
