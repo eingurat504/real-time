@@ -97,8 +97,8 @@ class LocationTypeController extends Controller
     }
 
 
-              /**
-     * Store location type.
+    /**
+     * Update location type.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -122,5 +122,22 @@ class LocationTypeController extends Controller
 
         return redirect()->route('location_types.index');
     }
+
+    /**
+     * Delete location type.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function destroy($typeId)
+    {
+
+        $type = LocationType::where('id', $typeId)
+                    ->delete();
+
+        // flash("{$route->name} updated.")->success();
+
+        return redirect()->route('location_types.index');
+    }
+
 
 }
