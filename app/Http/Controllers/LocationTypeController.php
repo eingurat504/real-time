@@ -95,4 +95,32 @@ class LocationTypeController extends Controller
 
         return redirect()->route('location_types.index');
     }
+
+
+              /**
+     * Store location type.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update(Request $request, $typeId)
+    {
+
+        $this->validate($request, [
+            'name' => 'sometimes',
+            'address' => 'sometimes',
+        ]);
+
+        $type = LocationType::where('id', $typeId)
+        ->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            // 'updated_by' => $user->c_user_rid,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        // flash("{$route->name} updated.")->success();
+
+        return redirect()->route('location_types.index');
+    }
+
 }
