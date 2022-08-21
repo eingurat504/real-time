@@ -28,9 +28,14 @@
                     </div>
                     <div class="form-group">
                         <label>Location Type</label>
-                        <input type="text" name="location_type" id="location_type" required
-                            class="form-control @error('location_type') is-invalid @enderror"
-                            value="{{ old('location_type') }}" placeholder="{{ __('Location Type') }}"/>
+                        <select class="form-control form-control-lg @error('location_type') is-invalid @enderror" id="location_type" name="location_type">
+                        <option value="">Choose location type</option>
+                            @foreach($types as $type)
+                                <option value="{{ $type->id }}"
+                                    {{ old('location_type') == $type->id ? 'selected' : '' }}>{{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
                         @error('location_type')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
