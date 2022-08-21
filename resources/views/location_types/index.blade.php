@@ -39,7 +39,7 @@
                             <a href="#" class="text-success btn btn-link px-1 dropdown-toggle dropdown-arrow-none" data-bs-toggle="dropdown" id="settingsDropdownsales">
                             <i class="mdi mdi-dots-horizontal"></i></a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="settingsDropdownsales">
-                                <a class="dropdown-item">
+                                <a href="{{ route('location_types.edit', $type->id) }}" class="dropdown-item">
                                     <i class="mdi mdi-grease-pencil text-primary"></i>
                                     Edit
                                 </a>
