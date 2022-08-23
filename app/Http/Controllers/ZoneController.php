@@ -135,7 +135,7 @@ class ZoneController extends Controller
         $zone = new Zone();
         $zone->name = $request->name;
         $zone->location_points_id = $request->location_points_id;
-        $zone->status = $request->status;
+        $zone->status = 1;
         $zone->p_polygon_coordinates = str_replace(';', ',', $request->p_polygon_coordinates);
         $zone->v_description = $request->description;
         $zone->created_at = date('Y-m-d H:i:s');

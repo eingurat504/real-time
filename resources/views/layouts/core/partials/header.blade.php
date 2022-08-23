@@ -211,11 +211,20 @@
                 </a>
                 <div class="submenu">
                     <ul>
+                        <h3>Dashboards</h3>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Alerts Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Incidents Report</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('location_types.index') }}">Device Report</a></li>
+                    </ul>
+
+                    <ul>
+                        <h3>Mapping</h3>
                         <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Routes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('location_types.index') }}">Location Types</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('locations.index') }}">Location Points</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('zones.index') }}">Zones</a></li>
                     </ul>
+                    
                 </div>
             </li>
             <li class="nav-item">
