@@ -83,31 +83,46 @@ class ZoneController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'location_points_id' => 'sometimes|exists:location_points,id',
-            'zone_xls' => 'sometimes'
+            'zone_kml' => 'sometimes'
         ]);
 
-        if (! empty($request->zone_xls)) {
+        if (! empty($request->zone_kml)) {
             $this->validate(
                 $request,
                 [
-                    'zone_xls' => 'sometimes|file|max:2048|mimes:csv,xls,xlsx',
+                    'zone_kml' => 'sometimes|file|max:2048|mimes:csv,xls,xlsx',
                 ],
                 [
-                    'zone_xls.mimes' => 'The :attribute must be a file of either type: csv, xls, or xlsx',
+                    'zone_kml.mimes' => 'The :attribute must be a file of either type: csv, xls, or xlsx',
                 ]
             );
 
-            Excel::load($request->zone_xls, function ($reader) {
-                $workbook = $reader->get();
+            $KMLFile = "foo.kml";
 
-                $this->zone_xls = $rows = $workbook[0];
+            $xml = simplexml_load_file($request->zone_kml);
 
-                foreach ($rows as $row) {
-                    if (! empty($row->latitude) && is_numeric($row->latitude) || ! empty($row->longitude) && is_numeric($row->longitude)) {
-                        $this->polygon_coordinates .= $row->latitude.','.$row->longitude.';';
-                    }
-                }
-            });
+            $id = $xml->Document->Folder->Placemark->Name->__toString();
+
+            $coordinates = $xml->Document->Folder->Placemark->Point->Coordinates;
+
+            for ($i = 0; $i < sizeof($coordinates); $i++) {
+                $coordinate = $coordinates[$i]->__toString();
+                // You should now have an ID and a coordinate as a string;
+                // Do what you need to do with the coordinate string
+                // and add the result to your database with SQL
+            }
+
+            // Excel::load($request->zone_kml, function ($reader) {
+            //     $workbook = $reader->get();
+
+            //     $this->zone_kml = $rows = $workbook[0];
+
+            //     foreach ($rows as $row) {
+            //         if (! empty($row->latitude) && is_numeric($row->latitude) || ! empty($row->longitude) && is_numeric($row->longitude)) {
+            //             $this->polygon_coordinates .= $row->latitude.','.$row->longitude.';';
+            //         }
+            //     }
+            // });
         }
 
         $arr_latlng = explode(';', $request->p_polygon_coordinates);
