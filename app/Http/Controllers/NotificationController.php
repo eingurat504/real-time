@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Notification;
 use App\Notifications\ArrivalsNotification;
+use App\Notifications\AlertsNotification;
 
 class NotificationController extends Controller
 {
@@ -23,7 +24,7 @@ class NotificationController extends Controller
     public function sendArrivalNotification() {
         $userSchema = User::first();
   
-        $offerData = [
+        $arrivalData = [
             'name' => 'BOGO',
             'body' => 'You received an offer.',
             'thanks' => 'Thank you',
@@ -32,7 +33,7 @@ class NotificationController extends Controller
             'offer_id' => 007
         ];
   
-        Notification::send($userSchema, new OffersNotification($offerData));
+        Notification::send($userSchema, new ArrivalsNotification($arrivalData));
    
         dd('Task completed!');
     }
@@ -40,7 +41,7 @@ class NotificationController extends Controller
     public function sendAlertNotification() {
         $userSchema = User::first();
   
-        $offerData = [
+        $alertData = [
             'name' => 'BOGO',
             'body' => 'You received an offer.',
             'thanks' => 'Thank you',
@@ -49,7 +50,7 @@ class NotificationController extends Controller
             'offer_id' => 007
         ];
   
-        Notification::send($userSchema, new OffersNotification($offerData));
+        Notification::send($userSchema, new AlertNotification($alertData));
    
         dd('Task completed!');
     }
