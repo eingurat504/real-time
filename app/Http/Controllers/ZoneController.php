@@ -74,6 +74,7 @@ class ZoneController extends Controller
 
             /**
      * Store location type.
+     * https://www.positronx.io/laravel-notification-example-create-notification-in-laravel/
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
