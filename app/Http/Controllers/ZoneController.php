@@ -100,38 +100,44 @@ class ZoneController extends Controller
 
             $KMLFile = "foo.kml";
 
-            $xml = simplexml_load_file($request->zone_kml);
+            $zone = simplexml_load_file($request->zone_kml);
 
-            $id = $xml->Document->Folder->Placemark->Name->__toString();
+            $coordinates = preg_replace('/\s+/S', ';', trim($zone->Document->Placemark->LineString->coordinates));
 
-            $coordinates = $xml->Document->Folder->Placemark->Point->Coordinates;
-
-            for ($i = 0; $i < sizeof($coordinates); $i++) {
-                $coordinate = $coordinates[$i]->__toString();
-                // You should now have an ID and a coordinate as a string;
-                // Do what you need to do with the coordinate string
-                // and add the result to your database with SQL
+            $coordinates = explode(';', $coordinates);
+    
+            $coor_arr = [];
+    
+            foreach ($coordinates as $coordinates_str) {
+                if (empty($coordinates_str)) {
+                    continue;
+                }
+    
+                $coordinate = explode(',', $coordinates_str);
+    
+                if (count($coordinate) != 3) {
+                    return redirect()->back()->withInput($request->input())
+                        ->withErrors(['route_kml' => ['Wrongly formed coordinate data.']]);
+                }
+    
+                $coor = [
+                    'longitude' => (float) $coordinate[0],
+                    'latitude' => (float) $coordinate[1],
+                    'altitude' => empty($coordinate[2]) ? 0 : (float) $coordinate[2],
+                ];
+    
+                $coor_arr[] = $coor;
             }
 
-            // Excel::load($request->zone_kml, function ($reader) {
-            //     $workbook = $reader->get();
 
-            //     $this->zone_kml = $rows = $workbook[0];
+        // $arr_latlng = explode(';', $request->p_polygon_coordinates);
 
-            //     foreach ($rows as $row) {
-            //         if (! empty($row->latitude) && is_numeric($row->latitude) || ! empty($row->longitude) && is_numeric($row->longitude)) {
-            //             $this->polygon_coordinates .= $row->latitude.','.$row->longitude.';';
-            //         }
-            //     }
-            // });
-        }
+        // $zone_array = [];
+        // foreach ($arr_latlng as $latlng) {
+        //     array_push($zone_array, explode(',', $latlng));
+        // }
 
-        $arr_latlng = explode(';', $request->p_polygon_coordinates);
-
-        $zone_array = [];
-        foreach ($arr_latlng as $latlng) {
-            array_push($zone_array, explode(',', $latlng));
-        }
+        dd($coor_arr);
 
         $zone = new Zone();
         $zone->name = $request->name;
