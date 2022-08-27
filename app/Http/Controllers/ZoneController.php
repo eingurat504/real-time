@@ -87,6 +87,8 @@ class ZoneController extends Controller
             'zone_kml' => 'sometimes'
         ]);
 
+        $coor_arr = [];
+    
         if (! empty($request->zone_kml)) {
             $this->validate(
                 $request,
@@ -98,16 +100,14 @@ class ZoneController extends Controller
                 ]
             );
 
-            $KMLFile = "foo.kml";
-
             $zone = simplexml_load_file($request->zone_kml);
 
             $coordinates = preg_replace('/\s+/S', ';', trim($zone->Document->Placemark->LineString->coordinates));
 
             $coordinates = explode(';', $coordinates);
-    
-            $coor_arr = [];
-    
+
+            dd($coordinates);
+
             foreach ($coordinates as $coordinates_str) {
                 if (empty($coordinates_str)) {
                     continue;
@@ -129,15 +129,7 @@ class ZoneController extends Controller
                 $coor_arr[] = $coor;
             }
 
-
-        // $arr_latlng = explode(';', $request->p_polygon_coordinates);
-
-        // $zone_array = [];
-        // foreach ($arr_latlng as $latlng) {
-        //     array_push($zone_array, explode(',', $latlng));
-        // }
-
-        dd($coor_arr);
+        }
 
         $zone = new Zone();
         $zone->name = $request->name;
@@ -149,7 +141,7 @@ class ZoneController extends Controller
         $zone->updated_at = date('Y-m-d H:i:s');
         $zone->save();
 
-        $coordinates = $zone_array;
+        $coordinates = $coor_arr;
 
         $sequence = 0;
 
@@ -165,8 +157,6 @@ class ZoneController extends Controller
             $coord->created_at = date('Y-m-d H:i:s');
             $coord->updated_at = date('Y-m-d H:i:s');
         }
-
-        // flash("{$route->name} created.")->success();
 
         return redirect()->route('zones.index');
     }
