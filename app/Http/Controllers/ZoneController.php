@@ -106,8 +106,6 @@ class ZoneController extends Controller
 
             $coordinates = explode(';', $coordinates);
 
-            dd($coordinates);
-
             foreach ($coordinates as $coordinates_str) {
                 if (empty($coordinates_str)) {
                     continue;
