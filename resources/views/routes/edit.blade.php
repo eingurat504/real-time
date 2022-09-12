@@ -17,7 +17,7 @@
                             <label for="name">Name</label>
                             <input type="text" name="route_name" id="route_name" required
                                 class="form-control @error('route_name') is-invalid @enderror"
-                                value="{{ old('route_name') }}" placeholder="{{ __('Route name') }}"/>
+                                value="{{ old('route_name', $route->route_name) }}" placeholder="{{ __('Route name') }}"/>
                             @error('route_name')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label>Short Code</label>
                             <input type="text" name="short_code" id="short_code" required
-                                class="form-control @error('short_code') is-invalid @enderror"
+                                class="form-control @error('short_code', $route->short_code) is-invalid @enderror"
                                 value="{{ old('short_code') }}" placeholder="{{ __('Short Code') }}"/>
                             @error('short_code')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -70,7 +70,7 @@
                             <label>Speed</label>
                             <input type="number" name="speed" id="speed" required
                                 class="form-control @error('speed') is-invalid @enderror"
-                                value="{{ old('speed') }}" placeholder="{{ __('speed') }}"/>
+                                value="{{ old('speed', $route->speed) }}" placeholder="{{ __('speed') }}"/>
                             @error('speed')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
@@ -79,7 +79,7 @@
                             <label>Distance</label>
                             <input type="number" name="distance" id="distance" required
                                 class="form-control @error('distance') is-invalid @enderror"
-                                value="{{ old('distance') }}" placeholder="{{ __('distance') }}"/>
+                                value="{{ old('distance', $route->distance) }}" placeholder="{{ __('distance') }}"/>
                             @error('distance')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
@@ -89,8 +89,7 @@
                             <label>Description</label>
                             <textarea type="text" name="description" id="description" required
                                 class="form-control @error('description') is-invalid @enderror" rows="4"
-                                value="{{ old('description') }}" placeholder="{{ __('Description') }}">
-                            </textarea>
+                                value="{{ old('description') }}" placeholder="{{ __('Description') }}">{{ old('description', $route->description) }}</textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
@@ -98,14 +97,14 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <a href="{{ route('routes.index') }}"
-                                class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
-                                    {{ __('CANCEL') }}
+                                class="btn btn-block btn-light font-weight-medium auth-form-btn">
+                                    {{ __('BACK') }}
                                 </a>
                             </div>
                             <div class="col-lg-6">
                                 <button type="submit"
-                                        class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
-                                    {{ __('+ CREATE') }}
+                                        class="btn btn-block btn-success font-weight-medium auth-form-btn">
+                                    {{ __('UPDATE') }}
                                 </button>
                             </div>
                         </div>

@@ -33,7 +33,7 @@ class RouteController extends Controller
         ]);
     }
 
-        /**
+    /**
      * Show Route.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -43,6 +43,20 @@ class RouteController extends Controller
         $route = Route::findorfail($routeId);
 
         return view('routes.show',[
+            'route' => $route
+        ]);
+    }
+
+    /**
+     * Show Edit Route.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function edit(Request $request, $routeId)
+    {
+        $route = Route::findorfail($routeId);
+
+        return view('routes.edit',[
             'route' => $route
         ]);
     }
