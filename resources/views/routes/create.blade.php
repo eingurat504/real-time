@@ -1,10 +1,22 @@
 @extends('layouts.core.base')
 
 @section('content')
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../index.html">UI Operations</a></li>
-    <li class="breadcrumb-item active">Projects</li>
-</ol>
+<div class="col-sm-6 mb-4 mb-xl-0">
+    <div class="d-lg-flex align-items-center">
+        <div>
+            <button type="button" class="btn bg-white btn-icon ms-2">
+                <i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
+            </button>
+        </div>
+        <div class="ms-lg-5">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Operations</a></li>
+            <li class="breadcrumb-item active">Routes</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
 <div class="col-lg-12">
     <form method="POST" action="{{ route('routes.store') }}">
         @csrf

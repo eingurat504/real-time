@@ -56,9 +56,49 @@ class RouteController extends Controller
     {
         $route = Route::findorfail($routeId);
 
+        $locations = LocationPoint::get();
+
         return view('routes.edit',[
-            'route' => $route
+            'route' => $route,
+            'locations' => $locations
         ]);
+    }
+
+    /**
+     * Update Route.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update(Request $request, $routeId)
+    {
+
+        $this->validate($request, [
+            'route_name' => 'sometimes',
+            'short_code' => 'sometimes',
+            'distance' => 'sometimes',
+            'start_location' => 'sometimes',
+            'end_location' => 'sometimes',
+            'speed' => 'sometimes',
+            'description' => 'sometimes',
+        ]);
+
+        $route = Route::findorfail($routeId);
+
+        Route::where('id','=',$routeId)
+        ->update([
+            'name' => $request->input('route_name',$route->name),
+            'short_code' => $request->input('short_code',$route->short_code),
+            'distance' => $request->input('distance',$route->distance),
+            'origin_id' => $request->input('start_location',$route->origin_id),
+            'destination_id' => $request->input('end_location',$route->destination_id),
+            'speed' => $request->input('speed',$route->speed),
+            'description' => $request->input('description',$route->description),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        // flash("{$route->name} created.")->success();
+
+        return redirect()->route('routes.index');
     }
 
         /**
