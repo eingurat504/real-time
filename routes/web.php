@@ -28,6 +28,8 @@ Route::pattern('route', $int);
 Route::group(['prefix' => '/route', 'as' => 'routes.'], function () { 
     Route::get('/', [App\Http\Controllers\RouteController::class, 'index'])->name('index');
     Route::get('/{route}', [App\Http\Controllers\RouteController::class, 'show'])->name('show');
+    Route::get('/{route}/edit', [App\Http\Controllers\RouteController::class, 'edit'])->name('edit');
+    Route::put('/{route}/update', [App\Http\Controllers\RouteController::class, 'update'])->name('update');
     Route::get('/{route}/configure', [App\Http\Controllers\RouteController::class, 'configureRoute'])->name('configure.show');
     Route::put('/{route}/upload', [App\Http\Controllers\RouteController::class, 'uploadRoute'])->name('upload');
     Route::get('/create', [App\Http\Controllers\RouteController::class, 'create'])->name('create');
