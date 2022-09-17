@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="row mt-4">
             <form method="POST" action="{{ route('routes.update', $route->id) }}">
                 @csrf
                 <div class="row">
