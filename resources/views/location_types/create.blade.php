@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="row mt-4">
             <form method="POST" action="{{ route('location_types.store') }}">
                 @csrf
                 <div class="row">
