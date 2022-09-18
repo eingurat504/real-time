@@ -179,13 +179,13 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">UI Elements</span>
+                    <span class="menu-title">Settings</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="submenu">
                     <ul>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/buttons.html">Cameras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/typography.html">Settings</a></li>
                     </ul>
                 </div>
             </li>
@@ -213,7 +213,7 @@
                     <ul>
                         <h3>Dashboards</h3>
                         <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Alerts Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Incidents Report</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('incidents.index') }}">Incidents Report</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('location_types.index') }}">Device Report</a></li>
                     </ul>
 

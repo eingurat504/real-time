@@ -67,6 +67,16 @@ Route::group(['prefix' => '/zone', 'as' => 'zones.'], function () {
     Route::post('/', [App\Http\Controllers\ZoneController::class , 'store'])->name('store');
 });
 
+Route::pattern('incident', $int);
+
+Route::group(['prefix' => '/incident', 'as' => 'incidents.'], function () { 
+    Route::get('/', [App\Http\Controllers\IncidentController::class, 'index'])->name('index');
+    Route::get('/{incident}', [App\Http\Controllers\IncidentController::class, 'show'])->name('show');
+    Route::get('/{incident}/edit', [App\Http\Controllers\IncidentController::class, 'edit'])->name('edit');
+    Route::get('/create', [App\Http\Controllers\IncidentController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\IncidentController::class , 'store'])->name('store');
+});
+
 
 
 
