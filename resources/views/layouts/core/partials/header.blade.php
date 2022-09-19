@@ -214,7 +214,7 @@
                         <h3>Dashboards</h3>
                         <li class="nav-item"><a class="nav-link" href="{{ route('routes.index') }}">Alerts Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('incidents.index') }}">Incidents Report</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('location_types.index') }}">Device Report</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('devices.reports.index') }}">Device Report</a></li>
                     </ul>
 
                     <ul>
