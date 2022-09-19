@@ -13,24 +13,8 @@
                 <div class="ms-lg-5">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Operations</a></li>
-                    <li class="breadcrumb-item active">Incidents Report</li>
+                    <li class="breadcrumb-item active">Devices Report</li>
                     </ol>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="d-flex align-items-center justify-content-md-end">
-                <div class="pe-1 mb-3 mb-xl-0">
-                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-                            Print
-                            <i class="mdi mdi-printer btn-icon-append"></i>                          
-                        </button>
-                </div>
-                <div class="pe-1 mb-3 mb-xl-0">
-                        <a href="{{ route('locations.create') }}" class="btn btn-outline-inverse-info btn-icon-text">
-                            Register
-                            <i class="mdi mdi-plus btn-icon-append"></i>                          
-                        </a>
                 </div>
             </div>
         </div>
