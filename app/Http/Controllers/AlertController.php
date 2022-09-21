@@ -23,7 +23,6 @@ class AlertController extends Controller
      */
     public function index()
     {
-        // $routes = Incident::get();
 
         return view('dashboard.alerts',[
             // 'routes' => $routes
