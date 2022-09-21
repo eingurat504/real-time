@@ -25,6 +25,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::pattern('route', $int);
 
+Route::group(['prefix' => '/alert', 'as' => 'alerts.'], function () { 
+    Route::get('/', [App\Http\Controllers\AlertController::class, 'index'])->name('index');
+    Route::get('/{route}', [App\Http\Controllers\AlertController::class, 'show'])->name('show');
+});
+
+Route::pattern('route', $int);
+
 Route::group(['prefix' => '/route', 'as' => 'routes.'], function () { 
     Route::get('/', [App\Http\Controllers\RouteController::class, 'index'])->name('index');
     Route::get('/{route}', [App\Http\Controllers\RouteController::class, 'show'])->name('show');
