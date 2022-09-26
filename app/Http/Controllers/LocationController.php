@@ -109,4 +109,40 @@ class LocationController extends Controller
 
         return redirect()->route('locations.index');
     }
+
+
+    
+    /**
+     * Update location type.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update(Request $request, $locationId)
+    {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'short_code' => 'sometimes',
+            'location_type' => 'sometimes',
+            'latitude' => 'sometimes',
+            'longitude' => 'sometimes',
+            'address' => 'sometimes',
+        ]);
+
+        $type = LocationPoint::where('id', $locationId)
+        ->update([
+            'name' => $request->name,
+            'short_code' => $request->short_code,
+            'location_type_id' => $request->location_type,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'address' => $request->address,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        // flash("{$route->name} updated.")->success();
+
+        return redirect()->route('locations.index');
+    }
+
 }
