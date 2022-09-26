@@ -23,7 +23,6 @@
 
         <div class="row mt-4">
             <form method="POST" action="{{ route('location_types.update', $type->id) }}">
-
                 @csrf
                 @method('PUT')
                 <div class="row">
