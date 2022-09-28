@@ -184,8 +184,8 @@
                 </a>
                 <div class="submenu">
                     <ul>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/buttons.html">Cameras</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/ui-features/typography.html">Settings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('cameras.index') }}">Cameras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
                     </ul>
                 </div>
             </li>

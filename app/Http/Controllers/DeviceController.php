@@ -31,4 +31,18 @@ class DeviceController extends Controller
             // 'routes' => $routes
         ]);
     }
+
+
+        /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCameras()
+    {
+
+        return view('cameras.index',[
+            // 'routes' => $routes
+        ]);
+    }
 }
