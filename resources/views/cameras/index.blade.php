@@ -12,8 +12,8 @@
                 </div>
                 <div class="ms-lg-5">
                     <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Operations</a></li>
-                    <li class="breadcrumb-item active">Location Points</li>
+                    <li class="breadcrumb-item"><a href="#">Settings</a></li>
+                    <li class="breadcrumb-item active">Cameras</li>
                     </ol>
                 </div>
             </div>
