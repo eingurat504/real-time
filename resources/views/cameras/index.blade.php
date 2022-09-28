@@ -54,30 +54,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($locations as $location) 
-                                <tr>
-                                    <td><a href="{{ route('locations.show', $location->id) }}">{{ $location->name }}</a></td>
-                                    <td>{{ $location->short_code }}</td>
-                                    <td>{{ $location->origin_id }}</td>
-                                    <td>{{ $location->destination_id }}</td>
-                                    <td>{{ $location->created_at }}</td>
-                                    <td>{{ $location->updated_at }}</td>
-                                    <td class="text-center"> 
-                                        <a href="#" class="text-success btn btn-link px-1 dropdown-toggle dropdown-arrow-none" data-bs-toggle="dropdown" id="settingsDropdownsales">
-                                        <i class="mdi mdi-dots-horizontal"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="settingsDropdownsales">
-                                            <a href="{{ route('locations.edit', $location->id) }}" class="dropdown-item">
-                                                <i class="mdi mdi-grease-pencil text-primary"></i>
-                                                Edit
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <i class="mdi mdi-delete text-primary"></i>
-                                                Delete
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                
                             </tbody>
                         </table>
                     </div>

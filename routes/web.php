@@ -30,6 +30,13 @@ Route::group(['prefix' => '/alert', 'as' => 'alerts.'], function () {
     Route::get('/{route}', [App\Http\Controllers\AlertController::class, 'show'])->name('show');
 });
 
+Route::pattern('camera', $int);
+
+Route::group(['prefix' => '/camera', 'as' => 'cameras.'], function () { 
+    Route::get('/', [App\Http\Controllers\DeviceController::class, 'getCameras'])->name('index');
+    Route::get('/{camera}', [App\Http\Controllers\DeviceController::class, 'show'])->name('show');
+});
+
 Route::pattern('route', $int);
 
 Route::group(['prefix' => '/route', 'as' => 'routes.'], function () { 
