@@ -30,6 +30,12 @@ Route::group(['prefix' => '/alert', 'as' => 'alerts.'], function () {
     Route::get('/{route}', [App\Http\Controllers\AlertController::class, 'show'])->name('show');
 });
 
+Route::group(['prefix' => '/google_map', 'as' => 'google_maps.'], function () { 
+    Route::get('/', [App\Http\Controllers\GoogleMapController::class, 'index'])->name('dashboard.index');
+    Route::get('/{route}', [App\Http\Controllers\GoogleMapController::class, 'show'])->name('show');
+});
+
+
 Route::pattern('camera', $int);
 
 Route::group(['prefix' => '/camera', 'as' => 'cameras.'], function () { 
