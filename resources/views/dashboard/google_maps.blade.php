@@ -1,5 +1,17 @@
 @extends('layouts.core.base')
 
+@section('extra-css')
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+@endsection
+
+@push('extra-js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA1t46Eh9O-_EKsg2SClsXg1NVy9MbvjfM">
+	</script>
+
+@endpush
+
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -20,19 +32,19 @@
         </div>
         <div class="col-sm-6">
             <div class="d-flex align-items-center">
-                <div class="pe-1 mb-3 mb-xl-0">
+                <div data-anim='flicker' class="pe-1 mb-3 mb-xl-0">
                         <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
                             Route Upload
                             <i class="mdi mdi-printer btn-icon-append"></i>                          
                         </button>
                 </div>
-                <div class="pe-1 mb-3 mb-xl-0">
+                <div data-anim='pulse' class="pe-1 mb-3 mb-xl-0">
                         <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
                             Route Upload
                             <i class="mdi mdi-printer btn-icon-append"></i>                          
                         </button>
                 </div>
-                <div class="pe-1 mb-3 mb-xl-0">
+                <div data-anim='wobble' class="pe-1 mb-3 mb-xl-0">
                         <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
                             Route Upload
                             <i class="mdi mdi-printer btn-icon-append"></i>                          
@@ -55,7 +67,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-lg-12 grid-margin stretch-card">
-       
+            <div id="map" style="width: 1900px; height:900px;"></div>
         </div>
     </div>
 </div>
