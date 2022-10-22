@@ -7,9 +7,7 @@
 @push('extra-js')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA1t46Eh9O-_EKsg2SClsXg1NVy9MbvjfM">
-	</script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.map_key') }}" async defer></script>
 @endpush
 
 @section('content')
