@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('location_points_id');
+            $table->boolean('status');
             $table->string('p_polygon_coordinates');
             $table->string('description');
             $table->timestamps();
