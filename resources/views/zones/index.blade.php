@@ -5,9 +5,9 @@
 @endsection
 
 @push('extra-js')
-    <script src="{{asset('pages/js/ects/zone/zone.min.js?20210422')}}" type="text/javascript"></script>
+    <script src="{{asset('pages/js/zone/zone.js')}}" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.map_key') }}" async defer></script>
-    <script src="{{asset('pages/js/ects/zone/map.js?1')}}"></script>
+    <script src="{{asset('pages/js/zone/map.js?1')}}"></script>
 
 @endpush
 
