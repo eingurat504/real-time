@@ -1,5 +1,16 @@
 @extends('layouts.core.base')
 
+@section('extra-css')
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+@endsection
+
+@push('extra-js')
+    <script src="{{asset('pages/js/ects/zone/zone.min.js?20210422')}}" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.map_key') }}" async defer></script>
+    <script src="{{asset('pages/js/ects/zone/map.js?1')}}"></script>
+
+@endpush
+
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -80,11 +91,7 @@
             </div>
         </div>
         <div class="col-lg-6 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    cddkdjd
-                </div>
-            </div>
+            <div id="map" style="height:520px;width:100%;"></div>
         </div>
     </div>
 </div>
