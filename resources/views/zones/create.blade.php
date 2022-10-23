@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                     <label>Locations</label>
-                                    <select class="form-control form-control-lg @error('location_point_id') is-invalid @enderror" id="location_type" name="location_type">
+                                    <select class="form-control form-control-lg @error('location_point_id') is-invalid @enderror" id="location_point_id" name="location_point_id">
                                     <option value="">Choose location</option>
                                         @foreach($locations as $location)
                                             <option value="{{ $location->id }}"
