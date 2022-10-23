@@ -1,5 +1,12 @@
 @extends('layouts.core.base')
 
+@push('extra-js')
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('pages/js/zone/add.js')}}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.map_key') }}&libraries=drawing&callback=initialize"
+        async defer></script>
+@endpush
+
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -89,6 +96,24 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6 grid-margin stretch-card">
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button id="delete-button" type="button"
+                                        class="btn btn-danger btn-block">
+                                    DELETE SELECTED SHAPE
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button id="save-button" type="submit"
+                                        class="btn btn-success btn-block">
+                                    SAVE SELECTED SHAPE
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="map" class="" style="height:400px;"></div>
                 </div>
             </div>
         </form>
