@@ -38,6 +38,20 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                    <label>Locations</label>
+                                    <select class="form-control form-control-lg @error('location_point_id') is-invalid @enderror" id="location_type" name="location_type">
+                                    <option value="">Choose location</option>
+                                        @foreach($locations as $location)
+                                            <option value="{{ $location->id }}"
+                                                {{ old('location_point_id') == $location->id ? 'selected' : '' }}>{{ $location->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('location_point_id')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Import Zone: </label>
                                 <input type="file" id="zone_xls" name="zone_xls" value="{{ old('zone_xls') }}"/>
                                 @if ($errors->has('zone_xls'))
