@@ -50,7 +50,7 @@
                                     @error('location_point_id')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
-                                </div>
+                            </div>
                             <div class="form-group">
                                 <label>Import Zone: </label>
                                 <input type="file" id="zone_xls" name="zone_xls" value="{{ old('zone_xls') }}"/>

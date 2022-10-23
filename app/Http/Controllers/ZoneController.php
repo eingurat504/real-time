@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ZoneCoordinate;
+use App\Models\LocationPoint;
 use App\Models\Zone;
 
 class ZoneController extends Controller
@@ -56,8 +57,11 @@ class ZoneController extends Controller
     {
         $zone = Zone::findorfail($zoneId);
 
+        $locations = LocationPoint::get();
+
         return view('zones.edit',[
-            'zone' => $zone
+            'zone' => $zone,
+            'locations' => $locations
         ]);
     }
 
@@ -69,7 +73,11 @@ class ZoneController extends Controller
     public function create()
     {
 
-        return view('zones.create');
+        $locations = LocationPoint::get();
+
+        return view('zones.create',[
+            'locations' => $locations
+        ]);
     }
 
             /**
@@ -83,7 +91,7 @@ class ZoneController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'location_points_id' => 'sometimes|exists:location_points,id',
+            'location_point_id' => 'sometimes|exists:location_points,id',
             'zone_kml' => 'sometimes'
         ]);
 
