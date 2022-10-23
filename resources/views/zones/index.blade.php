@@ -63,7 +63,9 @@
                                 <tbody>
                                 @foreach($zones as $zone) 
                                     <tr>
-                                        <td><a href="{{ route('zones.show', $zone->id) }}">{{ $zone->name }}</a></td>
+                                        <td>
+                                            <a href="javascript:void(0)" onclick="show_map({{ $zone->id }})">{{ $zone->name }}</a>
+                                        </td>
                                         <td>{{ $zone->location_points_id }}</td>
                                         <td>{{ $zone->created_at }}</td>
                                         <td>{{ $zone->updated_at }}</td>
