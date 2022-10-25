@@ -7,7 +7,7 @@
 @push('extra-js')
     <script src="{{asset('pages/js/zone/zone.js')}}" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.map_key') }}" async defer></script>
-    <script src="{{asset('pages/js/zone/map.js?1')}}"></script>
+    <script src="{{ asset('pages/js/zone/map.js')}}"></script>
 @endpush
 
 @section('content')
@@ -63,7 +63,9 @@
                                 <tbody>
                                 @foreach($zones as $zone) 
                                     <tr>
-                                        <td><a href="{{ route('zones.show', $zone->id) }}">{{ $zone->name }}</a></td>
+                                        <td>
+                                            <a href="javascript:void(0)" onclick="show_map({{ $zone->id }})">{{ $zone->name }}</a>
+                                        </td>
                                         <td>{{ $zone->location_points_id }}</td>
                                         <td>{{ $zone->created_at }}</td>
                                         <td>{{ $zone->updated_at }}</td>
