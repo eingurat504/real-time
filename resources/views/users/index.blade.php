@@ -39,23 +39,25 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Location Types</h4>
+                    <h4 class="card-title">Users</h4>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Description</th>
+                                <th>Username</th>
+                                <th>Email</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th class="text-center">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($types as $type) 
+                            @foreach($users as $user) 
                                 <tr>
                                     <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
-                                    <td>{{ $user->address }}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td class="text-center"> 
