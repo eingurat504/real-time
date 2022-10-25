@@ -13,8 +13,8 @@
                 <div class="ms-lg-5">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Operations</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('location_types.index') }}">Location Types</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('location_types.show', $type->id) }}">{{ $type->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Location Types</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></li>
                         <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="row mt-4">
-            <form method="POST" action="{{ route('location_types.update', $type->id) }}">
+            <form method="POST" action="{{ route('users.update', $user->id) }}">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -34,15 +34,24 @@
                                     <label for="name">Name: </label>
                                     <input type="text" name="name" id="name" required
                                         class="form-control @error('name') is-invalid @enderror"
-                                        value="{{ old('name', $type->name) }}" placeholder="{{ __('name') }}"/>
+                                        value="{{ old('name', $user->name) }}" placeholder="{{ __('name') }}"/>
                                     @error('name')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Email: </label>
+                                    <input type="text" name="email" id="email" required
+                                        class="form-control @error('email') is-invalid @enderror"
+                                        value="{{ old('email', $user->email) }}" placeholder="{{ __('email') }}"/>
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
                                     <textarea type="text" name="address" id="address" required
-                                        class="form-control @error('address') is-invalid @enderror" rows="4" placeholder="{{ __('Address') }}">{{ old('address', $type->address) }}
+                                        class="form-control @error('address') is-invalid @enderror" rows="4" placeholder="{{ __('Address') }}">{{ old('address', $user->address) }}
                                     </textarea>
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -50,7 +59,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <a href="{{ route('location_types.index') }}"
+                                        <a href="{{ route('users.index') }}"
                                         class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
                                             {{ __('CANCEL') }}
                                         </a>
