@@ -10,31 +10,35 @@
                             <tbody>
                             <tr>
                                 <td class="text-gray">Name</td>
-                                <td>{{ $type->name }}</td>
+                                <td>{{ $user->name }}</td>
                             </tr>
                             <tr>
-                                <td class="text-gray">Address</td>
-                                <td>{{ $type->address }}</td>
+                                <td class="text-gray">Username</td>
+                                <td>{{ $user->username }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray">Email</td>
+                                <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
                                 <td class="text-gray">Created At</td>
-                                <td>{{ $type->created_at }}</td>
+                                <td>{{ $user->created_at }}</td>
                             </tr>
                             <tr>
                                 <td class="text-gray">Updated At</td>
-                                <td>{{ $type->updated_at }}</td>
+                                <td>{{ $user->updated_at }}</td>
                             </tr>
                             </tbody>
                         </table>
                     <div class="row">
                         <div class="col-lg-6">
-                            <a href="{{ route('location_types.index') }}"
+                            <a href="{{ route('users.index') }}"
                             class="btn btn-block btn-light btn-lg font-weight-medium auth-form-btn">
                                 {{ __('CANCEL') }}
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="{{ route('location_types.edit', $type->id) }}"
+                            <a href="{{ route('users.edit', $user->id) }}"
                                     class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
                                 {{ __('+ EDIT') }}
                             </a>
