@@ -109,6 +109,16 @@ Route::group(['prefix' => '/device', 'as' => 'devices.'], function () {
 });
 
 
+Route::group(['prefix' => '/user', 'as' => 'users.'], function () { 
+    Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+    Route::get('/report', [App\Http\Controllers\UserController::class, 'report'])->name('reports.index');
+    Route::get('/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('show');
+    Route::get('/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit');
+    Route::get('/create', [App\Http\Controllers\UserController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\UserController::class , 'store'])->name('store');
+});
+
+
 
 
 
