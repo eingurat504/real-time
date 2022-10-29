@@ -49,6 +49,17 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label>Status</label>
+                                    <select type="text" name="status" id="status" required
+                                        class="form-control @error('status') is-invalid @enderror">
+                                        <option value="0">Active</option>
+                                        <option value="1">InActive</option>
+                                    </select>
+                                    @error('status')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label>Address</label>
                                     <textarea type="text" name="address" id="address" required
                                         class="form-control @error('address') is-invalid @enderror" rows="4" placeholder="{{ __('Address') }}">{{ old('address', $user->address) }}
