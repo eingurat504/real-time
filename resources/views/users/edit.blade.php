@@ -29,7 +29,7 @@
                     <div class="col-lg-6 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Location Type Info</h4>
+                                <h4 class="card-title">User Info</h4>
                                 <div class="form-group">
                                     <label for="name">Name: </label>
                                     <input type="text" name="name" id="name" required
@@ -45,6 +45,15 @@
                                         class="form-control @error('email') is-invalid @enderror"
                                         value="{{ old('email', $user->email) }}" placeholder="{{ __('email') }}"/>
                                     @error('email')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Phone number: </label>
+                                    <input type="text" name="phone_number" id="name" required
+                                        class="form-control @error('phone_number') is-invalid @enderror"
+                                        value="{{ old('phone_number') }}" placeholder="{{ __('phone_number') }}"/>
+                                    @error('phone_number')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
