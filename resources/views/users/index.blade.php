@@ -57,6 +57,7 @@
                                 <tr>
                                     <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                                     <td>{{ $user->username }}</td>
+                                    <td>{{ $user->status }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
