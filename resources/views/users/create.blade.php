@@ -14,7 +14,7 @@
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Settings</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Users</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Add</a></li>
+                    <li class="breadcrumb-item active">Add</li>
                     </ol>
                 </div>
             </div>
