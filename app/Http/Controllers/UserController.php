@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -75,14 +76,15 @@ class UserController extends Controller
             'status' => 'sometimes|boolean',
         ]);
 
-        $type = new User();
-        $type->name = $request->name;
-        $type->email = $request->email;
-        $type->phone_number = $request->phone_number;
-        $type->status = $request->status;
-        $type->created_at = date('Y-m-d H:i:s');
-        // $type->updated_at = date('Y-m-d H:i:s');
-        $type->save();
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->status = $request->status;
+        $user->password = Hash::make('12345678');
+        $user->created_at = date('Y-m-d H:i:s');
+        // $user->updated_at = date('Y-m-d H:i:s');
+        $user->save();
 
         // flash("{$route->name} created.")->success();
 

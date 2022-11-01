@@ -21,7 +21,7 @@
         </div>
 
         <div class="row mt-4">
-            <form method="POST" action="{{ route('location_types.store') }}">
+            <form method="POST" action="{{ route('users.store') }}">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 grid-margin stretch-card">
