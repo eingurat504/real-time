@@ -98,6 +98,7 @@ Route::group(['prefix' => '/incident', 'as' => 'incidents.'], function () {
     Route::post('/', [App\Http\Controllers\IncidentController::class , 'store'])->name('store');
 });
 
+Route::pattern('device', $int);
 
 Route::group(['prefix' => '/device', 'as' => 'devices.'], function () { 
     Route::get('/', [App\Http\Controllers\DeviceController::class, 'index'])->name('index');
@@ -108,6 +109,7 @@ Route::group(['prefix' => '/device', 'as' => 'devices.'], function () {
     Route::post('/', [App\Http\Controllers\DeviceController::class , 'store'])->name('store');
 });
 
+Route::pattern('user', $int);
 
 Route::group(['prefix' => '/user', 'as' => 'users.'], function () { 
     Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('index');
