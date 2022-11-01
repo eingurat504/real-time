@@ -11,8 +11,9 @@
         <h4>Hello! let's get started</h4>
         <h6 class="font-weight-light">Sign in to continue.</h6>
         <form class="pt-3" method="POST" action="{{ route('login') }}">
+            @csrf
           <div class="form-group">
-            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username">
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -20,7 +21,7 @@
             @enderror
           </div>
           <div class="form-group">
-            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
