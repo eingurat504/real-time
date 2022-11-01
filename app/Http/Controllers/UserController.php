@@ -70,14 +70,18 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'address' => 'sometimes',
+            'email' => 'sometimes',
+            'phone_number' => 'sometimes',
+            'status' => 'sometimes|boolean',
         ]);
 
         $type = new User();
         $type->name = $request->name;
-        $type->address = $request->address;
+        $type->email = $request->email;
+        $type->phone_number = $request->phone_number;
+        $type->status = $request->status;
         $type->created_at = date('Y-m-d H:i:s');
-        $type->updated_at = date('Y-m-d H:i:s');
+        // $type->updated_at = date('Y-m-d H:i:s');
         $type->save();
 
         // flash("{$route->name} created.")->success();

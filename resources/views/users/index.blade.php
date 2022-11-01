@@ -27,7 +27,7 @@
                         </button>
                 </div>
                 <div class="pe-1 mb-3 mb-xl-0">
-                        <a href="{{ route('location_types.create') }}" class="btn btn-outline-inverse-info btn-icon-text">
+                        <a href="{{ route('users.create') }}" class="btn btn-outline-inverse-info btn-icon-text">
                             Register
                             <i class="mdi mdi-plus btn-icon-append"></i>                          
                         </a>
