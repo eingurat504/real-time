@@ -214,11 +214,11 @@ $(document).ready(function(){
     
     
     // use jQuery to change the markers animation based on toggle button
-    $('.btn').click(function(){
-      let type = $(this).data('anim');
-      $('#markerLayer img').css('animation', type+ ' 1s infinite alternate');
-      $('#markerLayer img').css('-webkit-animation', type+ ' 1s infinite alternate')
-    })
+    // $('.btn').click(function(){
+    //   let type = $(this).data('anim');
+    //   $('#markerLayer img').css('animation', type+ ' 1s infinite alternate');
+    //   $('#markerLayer img').css('-webkit-animation', type+ ' 1s infinite alternate')
+    // })
     
   });
   
