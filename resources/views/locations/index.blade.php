@@ -41,7 +41,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Location Points</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table id="tbl_data" class="table table-striped">
                             <thead>
                             <tr>
                                 <th>Name</th>
