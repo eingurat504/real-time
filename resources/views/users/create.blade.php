@@ -29,11 +29,20 @@
                             <div class="card-body">
                                 <h4 class="card-title">User Info</h4>
                                 <div class="form-group">
-                                    <label for="name">Name: </label>
-                                    <input type="text" name="name" id="name" required
+                                    <label for="first_name">First Name: </label>
+                                    <input type="text" name="first_name" id="first_name" required
                                         class="form-control @error('name') is-invalid @enderror"
-                                        value="{{ old('name') }}" placeholder="{{ __('name') }}"/>
-                                    @error('name')
+                                        value="{{ old('first_name') }}" placeholder="{{ __('first_name') }}"/>
+                                    @error('first_name')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name: </label>
+                                    <input type="text" name="last_name" id="name" required
+                                        class="form-control @error('last_name') is-invalid @enderror"
+                                        value="{{ old('last_name') }}" placeholder="{{ __('last_name') }}"/>
+                                    @error('last_name')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
