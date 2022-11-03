@@ -70,14 +70,16 @@ class UserController extends Controller
     {
 
         $this->validate($request, [
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'sometimes',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
         ]);
 
         $user = new User();
-        $user->name = $request->name;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->status = $request->status;
@@ -86,7 +88,7 @@ class UserController extends Controller
         // $user->updated_at = date('Y-m-d H:i:s');
         $user->save();
 
-        // flash("{$route->name} created.")->success();
+        flash("{$user->first_name} created.")->success();
 
         return redirect()->route('users.index');
     }
