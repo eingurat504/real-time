@@ -99,23 +99,28 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function update(Request $request, $typeId)
+    public function update(Request $request, $userId)
     {
 
         $this->validate($request, [
-            'name' => 'sometimes',
-            'address' => 'sometimes',
+            'first_name' => 'sometimes',
+            'last_name' => 'sometimes',
+            'email' => 'sometimes',
+            'phone_number' => 'sometimes',
+            'status' => 'sometimes|boolean',
         ]);
 
-        $type = User::where('id', $typeId)
+        $user = User::where('id', $userId)
         ->update([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
             'address' => $request->address,
             // 'updated_by' => $user->c_user_rid,
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        // flash("{$route->name} updated.")->success();
+        flash("{$user->first_name} updated.")->success();
 
         return redirect()->route('users.index');
     }
@@ -125,10 +130,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function destroy($typeId)
+    public function destroy($userId)
     {
 
-        $type = User::where('id', $typeId)
+        $type = User::where('id', $userId)
                     ->delete();
 
         // flash("{$route->name} updated.")->success();
