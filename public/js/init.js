@@ -131,7 +131,7 @@ $(document).ready(function(){
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
   
       let img = new Image();   // Create new img element
-      img.src = 'truck.png'; // Set source path
+      img.src = 'images/truck.png'; // Set source path
   
       let myIcon = img.src;
       
@@ -212,13 +212,12 @@ $(document).ready(function(){
   
     initialize();
     
-    
     // use jQuery to change the markers animation based on toggle button
-    // $('.btn').click(function(){
-    //   let type = $(this).data('anim');
-    //   $('#markerLayer img').css('animation', type+ ' 1s infinite alternate');
-    //   $('#markerLayer img').css('-webkit-animation', type+ ' 1s infinite alternate')
-    // })
+    $('.btn').click(function(){
+      let type = $(this).data('anim');
+      $('#markerLayer img').css('animation', type+ ' 1s infinite alternate');
+      $('#markerLayer img').css('-webkit-animation', type+ ' 1s infinite alternate')
+    })
     
   });
   
