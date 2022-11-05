@@ -30,31 +30,31 @@
         </div>
         <div class="col-sm-6">
             <div class="d-flex align-items-center">
-                <div data-anim='flicker' class="pe-1 mb-3 mb-xl-0">
+                <div class='btn' data-anim='flicker' class="pe-1 mb-3 mb-xl-0">
+                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                            Flicker
+                            <i class="mdi mdi-printer btn-icon-append"></i>                          
+                        </button>
+                </div>
+                <div class='btn' data-anim='pulse' class="pe-1 mb-3 mb-xl-0">
+                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                            Pulse
+                            <i class="mdi mdi-printer btn-icon-append"></i>                          
+                        </button>
+                </div>
+                <div class='btn' data-anim='wobble' class="pe-1 mb-3 mb-xl-0">
+                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                            Wobble
+                            <i class="mdi mdi-printer btn-icon-append"></i>                          
+                        </button>
+                </div>
+                <div class='btn' class="pe-1 mb-4 mb-xl-0">
                         <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
                             Route Upload
                             <i class="mdi mdi-printer btn-icon-append"></i>                          
                         </button>
                 </div>
-                <div data-anim='pulse' class="pe-1 mb-3 mb-xl-0">
-                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-                            Route Upload
-                            <i class="mdi mdi-printer btn-icon-append"></i>                          
-                        </button>
-                </div>
-                <div data-anim='wobble' class="pe-1 mb-3 mb-xl-0">
-                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-                            Route Upload
-                            <i class="mdi mdi-printer btn-icon-append"></i>                          
-                        </button>
-                </div>
-                <div class="pe-1 mb-4 mb-xl-0">
-                        <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-                            Route Upload
-                            <i class="mdi mdi-printer btn-icon-append"></i>                          
-                        </button>
-                </div>
-                <div class="pe-1 mb-4 mb-xl-0">
+                <div class='btn' class="pe-1 mb-4 mb-xl-0">
                         <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
                             Route Upload
                             <i class="mdi mdi-printer btn-icon-append"></i>                          
