@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
          * @return void
          */
         $user = new User();
-        $user->name = ' Super Admin';
+        $user->first_name = 'Super';
+        $user->last_name = 'Admin';
         $user->email = 'superadmin@admin.com';
         $user->phone_number = '256778296611';
         $user->email_verified_at = date('Y-m-d H:i:s');
