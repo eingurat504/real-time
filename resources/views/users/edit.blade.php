@@ -14,7 +14,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Settings</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Users</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('users.show', $user->id) }}">{{ $user->first_name }} {{ $user->last_name }}</a></li>
                         <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div>
@@ -61,7 +61,7 @@
                                     <label for="phone_number">Phone number: </label>
                                     <input type="text" name="phone_number" id="name" required
                                         class="form-control @error('phone_number') is-invalid @enderror"
-                                        value="{{ old('phone_number') }}" placeholder="{{ __('phone_number') }}"/>
+                                        value="{{ old('phone_number', $user->phone_number) }}" placeholder="{{ __('phone_number') }}"/>
                                     @error('phone_number')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
