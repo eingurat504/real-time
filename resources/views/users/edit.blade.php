@@ -23,8 +23,8 @@
 
         <div class="row mt-4">
             <form method="POST" action="{{ route('users.update', $user->id) }}">
-                @csrf
                 @method('PUT')
+                @csrf
                 <div class="row">
                     <div class="col-lg-6 grid-margin stretch-card">
                         <div class="card">

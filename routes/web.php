@@ -116,7 +116,7 @@ Route::group(['prefix' => '/user', 'as' => 'users.'], function () {
     Route::get('/report', [App\Http\Controllers\UserController::class, 'report'])->name('reports.index');
     Route::get('/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('show');
     Route::get('/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit');
-    Route::get('/{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+    Route::put('/{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
     Route::get('/create', [App\Http\Controllers\UserController::class, 'create'])->name('create');
     Route::post('/', [App\Http\Controllers\UserController::class , 'store'])->name('store');
 });
