@@ -61,7 +61,7 @@
                                     <label for="phone_number">Phone number: </label>
                                     <input type="text" name="phone_number" id="name" required
                                         class="form-control @error('phone_number') is-invalid @enderror"
-                                        value="{{ old('phone_number') }}" placeholder="{{ __('phone_number') }}"/>
+                                        value="{{ old('phone_number', $user->phone_number) }}" placeholder="{{ __('phone_number') }}"/>
                                     @error('phone_number')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
