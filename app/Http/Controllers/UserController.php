@@ -115,6 +115,7 @@ class UserController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'address' => $request->address,
             // 'updated_by' => $user->c_user_rid,
             'updated_at' => date('Y-m-d H:i:s')
