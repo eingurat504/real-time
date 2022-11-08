@@ -44,8 +44,9 @@
                         <table id="tbl_data" class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Names</th>
                                 <th>Username</th>
+                                <th>status</th>
                                 <th>Email</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
@@ -55,7 +56,7 @@
                             <tbody>
                             @foreach($users as $user) 
                                 <tr>
-                                    <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
+                                    <td><a href="{{ route('users.show', $user->id) }}">{{ $user->first_name }} {{ $user->last_name }}</a></td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->status }}</td>
                                     <td>{{ $user->email }}</td>
