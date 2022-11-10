@@ -72,9 +72,10 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'sometimes',
+            'email' => 'sometimes|exists',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
+            'address' => 'sometimes',
         ]);
 
         $user = new User();
@@ -84,6 +85,7 @@ class UserController extends Controller
         $user->phone_number = $request->phone_number;
         $user->status = $request->status;
         $user->password = Hash::make('12345678');
+        $user->address = $request->address;
         $user->created_at = date('Y-m-d H:i:s');
         // $user->updated_at = date('Y-m-d H:i:s');
         $user->save();
@@ -108,6 +110,7 @@ class UserController extends Controller
             'email' => 'sometimes',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
+            'address' => 'sometimes',
         ]);
 
         $user = User::where('id', $userId)
