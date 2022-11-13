@@ -72,6 +72,7 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
+            'username' => 'required',
             'email' => 'sometimes|exists',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
@@ -82,6 +83,7 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->username = $request->username;
         $user->phone_number = $request->phone_number;
         $user->status = $request->status;
         $user->password = Hash::make('12345678');
@@ -108,6 +110,7 @@ class UserController extends Controller
             'first_name' => 'sometimes',
             'last_name' => 'sometimes',
             'email' => 'sometimes',
+            'username' => 'sometimes',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
             'address' => 'sometimes',
@@ -117,6 +120,7 @@ class UserController extends Controller
         ->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'username' => $request->username,
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'address' => $request->address,
