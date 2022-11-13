@@ -142,7 +142,7 @@
                 </li>
                 <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">{{ Auth::user()->name }}</span>
+                    <span class="nav-profile-name">{{ Auth::user()->first_name }}</span>
                     <span class="online-status"></span>
                     <img src="{{ asset('images/faces/face28.png') }}" alt="profile"/>
                 </a>
