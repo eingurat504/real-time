@@ -122,13 +122,14 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'username' => $request->username,
             'email' => $request->email,
+            'status' => $request->status,
             'phone_number' => $request->phone_number,
             'address' => $request->address,
             // 'updated_by' => $user->c_user_rid,
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        flash("{$user->first_name} updated.")->success();
+        // flash("{$user->first_name} updated.")->success();
 
         return redirect()->route('users.index');
     }
