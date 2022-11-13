@@ -28,8 +28,12 @@
                         <table class="table no-wrap">
                             <tbody>
                             <tr>
-                                <td class="text-gray">Name</td>
-                                <td>{{ $user->name }}</td>
+                                <td class="text-gray">First Name</td>
+                                <td>{{ $user->first_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray">Last Name</td>
+                                <td>{{ $user->last_name }}</td>
                             </tr>
                             <tr>
                                 <td class="text-gray">Username</td>
@@ -40,12 +44,8 @@
                                 <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
-                                <td class="text-gray">Created At</td>
-                                <td>{{ $user->created_at }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-gray">Updated At</td>
-                                <td>{{ $user->updated_at }}</td>
+                                <td class="text-gray">Status</td>
+                                <td>{{ $user->status }}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -58,9 +58,22 @@
                     <h4 class="card-title">Location Type Info</h4>
                         <table class="table no-wrap">
                             <tbody>
+                                
                             <tr>
-                                <td class="text-gray">Name</td>
-                                <td>{{ $user->name }}</td>
+                                <td class="text-gray">Address</td>
+                                <td>{{ $user->address }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray">Updated At</td>
+                                <td>{{ $user->updated_at }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray">Created At</td>
+                                <td>{{ $user->created_at }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray">Updated At</td>
+                                <td>{{ $user->updated_at }}</td>
                             </tr>
                             </tbody>
                         </table>
