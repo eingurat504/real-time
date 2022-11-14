@@ -129,7 +129,7 @@ class UserController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        // flash("{$user->first_name} updated.")->success();
+        flash("{$user->first_name} updated.")->success();
 
         return redirect()->route('users.index');
     }
@@ -142,10 +142,10 @@ class UserController extends Controller
     public function destroy($userId)
     {
 
-        $type = User::where('id', $userId)
+        $user = User::where('id', $userId)
                     ->delete();
 
-        // flash("{$route->name} updated.")->success();
+        flash("{$user->first_name} deleted.")->success();
 
         return redirect()->route('users.index');
     }

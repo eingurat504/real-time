@@ -35,6 +35,12 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            @include('flash::message')
+        </div>
+    </div>
+
     <div class="row mt-4">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
