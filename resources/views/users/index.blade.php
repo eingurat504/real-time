@@ -52,7 +52,7 @@
                             <tr>
                                 <th>Names</th>
                                 <th>Username</th>
-                                <th>status</th>
+                                <th class="text-center">status</th>
                                 <th>Email</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
@@ -64,7 +64,12 @@
                                 <tr>
                                     <td><a href="{{ route('users.show', $user->id) }}">{{ $user->first_name }} {{ $user->last_name }}</a></td>
                                     <td>{{ $user->username }}</td>
-                                    <td>{{ $user->status }}</td>
+                                    <td class="text-center">@if($user->status == 0)
+                                          <span>Active</span> 
+                                        @else
+                                          <span>Deactivated</span> 
+                                        @endif
+                                    </td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
