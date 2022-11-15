@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
         $user->address = 'admin';
         $user->status = 0;
         $user->email_verified_at = date('Y-m-d H:i:s');
+        $user->user_id = 1;
         $user->password = Hash::make('12345678');
         $user->save();
 
