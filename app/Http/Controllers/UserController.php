@@ -116,18 +116,16 @@ class UserController extends Controller
             'address' => 'sometimes',
         ]);
 
-        $user = User::where('id', $userId)
-        ->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'status' => $request->status,
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            // 'updated_by' => $user->c_user_rid,
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
+        $user = User::find($userId);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->status = $request->status;
+        $user->phone_number = $request->phone_number;
+        $user->address = $request->address;
+        $user->updated_at = date('Y-m-d H:i:s');
+        $user->save();
 
         flash("{$user->first_name} updated.")->success();
 

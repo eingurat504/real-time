@@ -30,4 +30,18 @@ class IncidentController extends Controller
         ]);
     }
 
+        /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function report()
+    {
+        // $routes = Incident::get();
+
+        return view('reports.incident',[
+            // 'routes' => $routes
+        ]);
+    }
+
 }
