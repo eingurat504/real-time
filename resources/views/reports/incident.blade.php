@@ -43,23 +43,29 @@
                     <div class="card-body">
                         <div class="row">
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
+                            <label>Date from:</label>
+                            <input class="form-control form-control @error('latitude') is-invalid @enderror date date-time-picker"
+                                    type="datetime" name="date_from" id="date_from"
+                                    data-value="{{ old('date_from') }}"
+                                    data-date-format="YYYY-MM-DD HH:ss:[00]" required/>
+                            @if ($errors->has('date_from'))
+                                <span class="help-block">
+                                    {{ $errors->first('date_from') }}
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
+                            <label>Date to:</label>
+                            <input class="form-control form-control @error('date_to') is-invalid @enderror date date-time-picker"
+                                    type="datetime" name="date_to" id="date_to"
+                                    data-value="{{ old('date_to') }}"
+                                    data-date-format="YYYY-MM-DD HH:ss:[00]" required/>
+                            @if ($errors->has('date_to'))
+                                <span class="help-block">
+                                    {{ $errors->first('date_to') }}
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
@@ -72,14 +78,15 @@
                             @enderror
                         </div>
                      
-                        <div class="row">
-                            <div class="col-lg-6">
+                        <!-- <div class="row"> -->
+                            <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                               <label>&nbsp;</label>
                                 <button type="submit"
                                         class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
                                     {{ __('+ DOWNLOAD') }}
                                 </button>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         </div>
                     </div>
                 </div>

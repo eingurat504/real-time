@@ -28,12 +28,16 @@
                         <div class="row">
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
                             <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
+
+                            <input class="form-control form-control @error('latitude') is-invalid @enderror date date-time-picker"
+                                    type="datetime" name="date_from" id="date_from"
+                                    data-value="{{ old('date_from') }}"
+                                    data-date-format="YYYY-MM-DD HH:ss:[00]" required/>
+                            @if ($errors->has('date_from'))
+                                <span class="help-block">
+                                    {{ $errors->first('date_from') }}
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
