@@ -54,6 +54,7 @@
                                 <th>Username</th>
                                 <th class="text-center">status</th>
                                 <th>Email</th>
+                                <th>Created By</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th class="text-center">Action</th>
@@ -71,6 +72,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->user_id }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td class="text-center"> 
