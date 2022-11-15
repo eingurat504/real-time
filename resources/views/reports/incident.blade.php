@@ -78,14 +78,15 @@
                             @enderror
                         </div>
                      
-                        <div class="row">
-                            <div class="col-lg-6">
+                        <!-- <div class="row"> -->
+                            <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                               <label>&nbsp;</label>
                                 <button type="submit"
                                         class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
                                     {{ __('+ DOWNLOAD') }}
                                 </button>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         </div>
                     </div>
                 </div>
