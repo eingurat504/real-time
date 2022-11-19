@@ -24,6 +24,7 @@ Auth::routes(['verify' => true]);
 $int = '^\d+$';
 
 Route::get('/reset-password', [App\Http\Controllers\Auth\PasswordController::class, 'showLinkRequestForm'])->name('reset.index');
+Route::post('/password/email', [App\Http\Controllers\Auth\PasswordController::class , 'sendResetLinkEmail'])->name('password.email');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
