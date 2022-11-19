@@ -40,8 +40,8 @@
                 Keep me signed in
               </label>
             </div>
-            @if (Route::has('password.request'))
-                <a class="auth-link text-black" href="{{ route('password.request') }}">
+            @if (Route::has('reset.index'))
+                <a class="auth-link text-black" href="{{ route('reset.index') }}">
                     {{ __('Forgot Password?') }}
                 </a>
             @endif

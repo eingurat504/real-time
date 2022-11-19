@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Auth::routes();
 Auth::routes(['verify' => true]);
 
 $int = '^\d+$';
+
+Route::get('/reset-password', [App\Http\Controllers\Auth\PasswordController::class, 'showLinkRequestForm'])->name('reset.index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
