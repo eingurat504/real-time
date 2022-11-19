@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -73,7 +74,7 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'username' => 'required',
-            'email' => 'sometimes|exists',
+            'email' => 'sometimes|email',
             'phone_number' => 'sometimes',
             'status' => 'sometimes|boolean',
             'address' => 'sometimes',
@@ -86,8 +87,9 @@ class UserController extends Controller
         $user->username = $request->username;
         $user->phone_number = $request->phone_number;
         $user->status = $request->status;
-        $user->password = Hash::make('12345678');
+        $user->password = Hash::make(Str::random(12));
         $user->address = $request->address;
+        $user->user_id = $request->user()->id;
         $user->created_at = date('Y-m-d H:i:s');
         // $user->updated_at = date('Y-m-d H:i:s');
         $user->save();
