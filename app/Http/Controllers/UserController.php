@@ -135,6 +135,34 @@ class UserController extends Controller
     }
 
     /**
+     * Show Edit location type.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function userProfile(Request $request, $userId)
+    {
+        $user = User::findorfail($userId);
+
+        return view('users.profile',[
+            'user' => $user
+        ]);
+    }
+
+                    /**
+     * Show Edit location type.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function updateProfile(Request $request, $userId)
+    {
+        $user = User::findorfail($userId);
+
+        return view('users.profile',[
+            'user' => $user
+        ]);
+    }
+
+    /**
      * Delete location type.
      *
      * @return \Illuminate\Contracts\Support\Renderable
