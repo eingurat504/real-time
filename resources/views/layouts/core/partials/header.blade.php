@@ -147,9 +147,9 @@
                     <img src="{{ asset('images/faces/face28.png') }}" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item">
+                    <a class="dropdown-item" href="{{ route('users.profile.index', Auth::user()->id) }}">
                         <i class="mdi mdi-settings text-primary"></i>
-                        Settings
+                        Profile
                     </a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>

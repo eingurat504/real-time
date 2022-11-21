@@ -22,7 +22,7 @@
         </div>
 
         <div class="row mt-4">
-            <form method="POST" action="{{ route('users.update', $user->id) }}">
+            <form method="POST" action="{{ route('users.profile', $user->id) }}">
                 @method('PUT')
                 @csrf
                 <div class="row">
