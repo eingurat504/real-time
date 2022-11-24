@@ -31,40 +31,33 @@
                             <div class="card-body">
                                 <h4 class="card-title">User Info</h4>
                                 <div class="form-group">
-                                    <label for="first_name">First Name: </label>
-                                    <input type="text" name="first_name" id="first_name" required
-                                        class="form-control @error('first_name') is-invalid @enderror"
-                                        value="{{ old('first_name', $user->first_name) }}" placeholder="{{ __('First name') }}"/>
-                                    @error('first_name')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                    @enderror
+                                    <label class="col-md-4">First Name: </label>
+                                    <label class="col-md-4">{{ $user->first_name }} </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="last_name">Last Name: </label>
-                                    <input type="text" name="last_name" id="last_name" required
-                                        class="form-control @error('last_name') is-invalid @enderror"
-                                        value="{{ old('last_name', $user->last_name) }}" placeholder="{{ __('Last name') }}"/>
-                                    @error('last_name')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                    @enderror
+                                    <label class="col-md-4">Last Name: </label>
+                                    <label class="col-md-4">{{ $user->last_name }} </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="username">Username: </label>
-                                    <input type="text" name="username" id="username" required
-                                        class="form-control @error('username') is-invalid @enderror"
-                                        value="{{ old('username', $user->username) }}" placeholder="{{ __('Username') }}"/>
-                                    @error('username')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                    @enderror
+                                    <label class="col-md-4">Username: </label>
+                                    <label class="col-md-4">{{ $user->username }} </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Email: </label>
-                                    <input type="text" name="email" id="email" required
-                                        class="form-control @error('email') is-invalid @enderror"
-                                        value="{{ old('email', $user->email) }}" placeholder="{{ __('email') }}"/>
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                    @enderror
+                                    <label class="col-md-4">Email: </label>
+                                    <label class="col-md-4">{{ $user->email }} </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4">Phone number: </label>
+                                    <label class="col-md-4">{{ $user->phone_number }} </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4">Status: </label>
+                                    <label class="col-md-4">{{ $user->status }} </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-4">Address: </label>
+                                    <label class="col-md-4">{{ $user->address }} </label>
                                 </div>
                             </div>
                         </div>
@@ -74,31 +67,27 @@
                             <div class="card-body">
                                 <h4 class="card-title">User Info</h4>
                                 <div class="form-group">
-                                    <label for="phone_number">Phone number: </label>
-                                    <input type="text" name="phone_number" id="name" required
-                                        class="form-control @error('phone_number') is-invalid @enderror"
-                                        value="{{ old('phone_number', $user->phone_number) }}" placeholder="{{ __('phone_number') }}"/>
-                                    @error('phone_number')
+                                    <label for="current_password">Current Password: </label>
+                                    <input type="text" name="current_password" id="name" required
+                                        class="form-control @error('current_password') is-invalid @enderror"
+                                        value="{{ old('current_password', $user->current_password) }}" placeholder="{{ __('current_password') }}"/>
+                                    @error('current_password')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <select type="text" name="status" id="status" required
-                                        class="form-control @error('status') is-invalid @enderror">
-                                        <option value="0">Active</option>
-                                        <option value="1">InActive</option>
-                                    </select>
-                                    @error('status')
+                                    <label>new_password</label>
+                                    <input type="text" name="new_password" id="new_password" required
+                                        class="form-control @error('new_password') is-invalid @enderror" placeholder="{{ __('new_password') }}" />
+                                    @error('new_password')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea type="text" name="address" id="address" required
-                                        class="form-control @error('address') is-invalid @enderror" rows="4" placeholder="{{ __('Address') }}">{{ old('address', $user->address) }}
-                                    </textarea>
-                                    @error('address')
+                                    <label>confirm_password</label>
+                                    <input type="text" name="confirm_password" id="confirm_password" required
+                                        class="form-control @error('confirm_password') is-invalid @enderror" placeholder="{{ __('confirm_password') }}" />
+                                    @error('confirm_password')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
