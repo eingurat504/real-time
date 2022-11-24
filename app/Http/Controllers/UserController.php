@@ -139,9 +139,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function userProfile(Request $request, $userId)
+    public function userProfile(Request $request)
     {
-        $user = User::findorfail($userId);
+        $userId = $request->user();
+
+        $user = User::findorfail($userId->id);
 
         return view('users.profile',[
             'user' => $user
