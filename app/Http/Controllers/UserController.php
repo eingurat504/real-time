@@ -153,13 +153,42 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function updateProfile(Request $request, $userId)
+    public function updateProfile(Request $request)
     {
-        $user = User::findorfail($userId);
 
-        return view('users.profile',[
-            'user' => $user
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required_with:new_password',
+            'new_password' => 'sometimes|min:8|confirmed',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }
+
+        $user = $request->user();
+
+        if ($request->filled('new_password')) {
+            if (strcasecmp($user->password, md5($request->current_password)) != 0) {
+                return response()->json(['error' => ['current_password' => ['Incorrect password']]], 422);
+            }
+        }
+
+        $data = [
+            'update_at' => date('Y-m-d H:i:s'),
+        ];
+
+        if ($request->filled('new_password')) {
+            $data['password'] = md5($request->new_password);
+        }
+
+        $route = Route::findorfail($routeId);
+
+        User::where('id','=',$user->id)
+        ->update($data);
+
+        // flash("{$route->name} created.")->success();
+
+        return redirect()->route('users.profile.index');
     }
 
     /**
