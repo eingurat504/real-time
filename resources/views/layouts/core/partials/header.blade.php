@@ -147,7 +147,7 @@
                     <img src="{{ asset('images/faces/face28.png') }}" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="{{ route('users.profile.index', Auth::user()->id) }}">
+                    <a class="dropdown-item" href="{{ route('users.profile.index') }}">
                         <i class="mdi mdi-settings text-primary"></i>
                         Profile
                     </a>
