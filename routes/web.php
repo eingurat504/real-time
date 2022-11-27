@@ -97,7 +97,8 @@ Route::pattern('incident', $int);
 
 Route::group(['prefix' => '/incident', 'as' => 'incidents.'], function () { 
     Route::get('/', [App\Http\Controllers\IncidentController::class, 'index'])->name('index');
-    Route::get('/report', [App\Http\Controllers\IncidentController::class, 'report'])->name('reports.index');
+    Route::get('/report', [App\Http\Controllers\IncidentController::class, 'index'])->name('reports.index');
+    Route::post('/report', [App\Http\Controllers\IncidentController::class, 'report'])->name('report');
     Route::get('/{incident}', [App\Http\Controllers\IncidentController::class, 'show'])->name('show');
     Route::get('/{incident}/edit', [App\Http\Controllers\IncidentController::class, 'edit'])->name('edit');
     Route::get('/create', [App\Http\Controllers\IncidentController::class, 'create'])->name('create');
