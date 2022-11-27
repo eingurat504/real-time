@@ -67,26 +67,26 @@
                                 <h4 class="card-title">User Info</h4>
                                 <div class="form-group">
                                     <label for="current_password">Current Password: </label>
-                                    <input type="text" name="current_password" id="name" required
+                                    <input type="password" name="current_password" id="name" required
                                         class="form-control @error('current_password') is-invalid @enderror"
-                                        value="{{ old('current_password', $user->current_password) }}" placeholder="{{ __('current_password') }}"/>
+                                        value="" placeholder="{{ __('current_password') }}"/>
                                     @error('current_password')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>new_password</label>
-                                    <input type="text" name="new_password" id="new_password" required
+                                    <label>New password</label>
+                                    <input type="password" name="new_password" id="new_password" required
                                         class="form-control @error('new_password') is-invalid @enderror" placeholder="{{ __('new_password') }}" />
                                     @error('new_password')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>confirm_password</label>
-                                    <input type="text" name="confirm_password" id="confirm_password" required
-                                        class="form-control @error('confirm_password') is-invalid @enderror" placeholder="{{ __('confirm_password') }}" />
-                                    @error('confirm_password')
+                                    <label>Confirm password</label>
+                                    <input type="password" name="new_password_confirmation" id="new_password_confirmation" required
+                                        class="form-control @error('new_password_confirmation') is-invalid @enderror" placeholder="{{ __('new_password_confirmation') }}" />
+                                    @error('new_password_confirmation')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>

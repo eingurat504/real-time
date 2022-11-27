@@ -2,9 +2,13 @@
 
 @section('extra-css')
     <!-- <link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
+    
+    <link href=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css” rel=”stylesheet” />
 @endsection
 
 @push('extra-js')
+    <script type=”text/javascript” src=”https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js”></script>
+    <script src=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js”> </script>
     <script src="{{ asset('pages/js/incident/report/report.js')}}"></script>
 @endpush
 
@@ -52,8 +56,8 @@
                     <div class="card-body">
                         <div class="row">
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Date from:</label>
-                            <input class="form-control form-control @error('latitude') is-invalid @enderror date date-time-picker"
+                            <label for="date_from">Date from:</label>
+                            <input class="form-control form-control @error('date_from') is-invalid @enderror date date-time-picker"
                                     type="datetime" name="date_from" id="date_from"
                                     data-value="{{ old('date_from') }}"
                                     data-date-format="YYYY-MM-DD HH:ss:[00]" required/>
@@ -65,7 +69,7 @@
                         </div>
 
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Date to:</label>
+                            <label for="date_to">Date to:</label>
                             <input class="form-control form-control @error('date_to') is-invalid @enderror date date-time-picker"
                                     type="datetime" name="date_to" id="date_to"
                                     data-value="{{ old('date_to') }}"
@@ -78,11 +82,11 @@
                         </div>
 
                         <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
+                            <label>Status</label>
+                            <input type="text" name="status" id="status" required
+                                class="form-control @error('status') is-invalid @enderror"
+                                value="{{ old('status') }}" placeholder="{{ __('status') }}"/>
+                            @error('status')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
                         </div>
@@ -108,7 +112,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Incidents</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table id="incident_table" class="table table-striped">
                             <thead>
                             <tr>
                                 <th>Name</th>
