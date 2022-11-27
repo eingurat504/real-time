@@ -158,19 +158,15 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
+        $this->validate($request, [
             'current_password' => 'required_with:new_password',
             'new_password' => 'sometimes|min:8|confirmed',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        }
-
         $user = $request->user();
 
         if ($request->filled('new_password')) {
-            if (strcasecmp($user->password, md5($request->current_password)) != 0) {
+            if (strcasecmp($user->password, Hash::make($request->current_password)) != 0) {
                 return response()->json(['error' => ['current_password' => ['Incorrect password']]], 422);
             }
         }
@@ -180,15 +176,13 @@ class UserController extends Controller
         ];
 
         if ($request->filled('new_password')) {
-            $data['password'] = md5($request->new_password);
+            $data['password'] = Hash::make($request->new_password);
         }
-
-        $route = Route::findorfail($routeId);
 
         User::where('id','=',$user->id)
         ->update($data);
 
-        // flash("{$route->name} created.")->success();
+        // flash("{$user->username} profile updated.")->success();
 
         return redirect()->route('users.profile.index');
     }
