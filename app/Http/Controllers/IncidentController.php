@@ -25,7 +25,7 @@ class IncidentController extends Controller
     {
         // $routes = Incident::get();
 
-        return view('incidents.index',[
+        return view('reports.incident',[
             // 'routes' => $routes
         ]);
     }

@@ -1,5 +1,14 @@
 @extends('layouts.core.base')
 
+@section('extra-css')
+    <!-- <link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
+@endsection
+
+@push('extra-js')
+    <script src="{{ asset('pages/js/incident/report/report.js')}}"></script>
+@endpush
+
+
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -37,7 +46,7 @@
     </div>
     
     <div class="row mt-4">
-        <form method="POST" action="{{ route('locations.store') }}">
+        <form id="incident_report" method="POST" action="{{ route('incidents.report') }}">
             @csrf
             <div class="card">
                     <div class="card-body">
