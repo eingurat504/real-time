@@ -165,10 +165,9 @@ class UserController extends Controller
 
         $user = $request->user();
 
-        if ($request->filled('new_password')) {
-            if (strcasecmp($user->password, Hash::make($request->current_password)) != 0) {
-                return response()->json(['error' => ['current_password' => ['Incorrect password']]], 422);
-            }
+        #Match The Old Password
+        if(!Hash::check($request->current_password, auth()->user()->password)){
+            return back()->with("error", "Incorrect password !");
         }
 
         $data = [
