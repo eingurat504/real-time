@@ -13,61 +13,11 @@
                 <div class="ms-lg-5">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Operations</a></li>
-                    <li class="breadcrumb-item active">Incidents Report</li>
+                    <li class="breadcrumb-item active">Alerts Dashboard</li>
                     </ol>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="row mt-4">
-        <form method="POST" action="{{ route('locations.store') }}">
-            @csrf
-            <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                        <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" id="latitude" required
-                                class="form-control @error('latitude') is-invalid @enderror"
-                                value="{{ old('latitude') }}" placeholder="{{ __('Latitude') }}"/>
-                            @error('latitude')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
-                        </div>
-                     
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <button type="submit"
-                                        class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">
-                                    {{ __('+ DOWNLOAD') }}
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-        </form>
     </div>
 
     <div class="row mt-4">
@@ -79,11 +29,11 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Short Code</th>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                                <th>Created At</th>
+                                <th>Vehicle/Container</th>
+                                <th>Device</th>
+                                <th>Entry No</th>
+                                <th>category</th>
+                                <th>Event</th>
                                 <th>Updated At</th>
                                 <th class="text-center">Action</th>
                             </tr>
