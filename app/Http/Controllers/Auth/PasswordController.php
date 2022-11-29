@@ -59,12 +59,14 @@ class PasswordController extends Controller
     public function sendResetLinkEmail(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
-            'username' => 'nullable|safe_str',
+            'email' => 'required|email|exists:users,email',
+            'username' => 'nullable',
         ]);
 
         $user = User::where('email', $request->email)
+                    ->where('username', $request->username)
                     ->first();
+
 
         $full_name = "$user->first_name "."$user->last_name";
 
