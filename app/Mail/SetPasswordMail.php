@@ -44,7 +44,7 @@ class SetPasswordMail extends Mailable
                 ]),
                 'name' => $this->account['name'],
                 'first_name' => explode(' ', $this->account['full_name'])[0],
-                'organization' => $this->account['organization'],
+                // 'organization' => $this->account['organization'],
                 'expires_at' => $expires_at->format('Y-m-d H:i:s'),
             ]);
     }
