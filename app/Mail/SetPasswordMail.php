@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Carbon\Carbon;
 
 class SetPasswordMail extends Mailable
 {
@@ -19,9 +20,9 @@ class SetPasswordMail extends Mailable
     /**
      * Create a new message instance.
      *
-     * @param array $account
+     * @param $account
      */
-    public function __construct(array $account)
+    public function __construct($account)
     {
         $this->account = $account;
     }
