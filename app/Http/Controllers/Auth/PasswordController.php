@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\Users\SetPasswordMail;
+use App\Mail\SetPasswordMail;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class PasswordController extends Controller
@@ -66,7 +67,6 @@ class PasswordController extends Controller
         $user = User::where('email', $request->email)
                     ->where('username', $request->username)
                     ->first();
-
 
         $full_name = "$user->first_name "."$user->last_name";
 
